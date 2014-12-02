@@ -1,17 +1,9 @@
-﻿
--- empty friends
-delete from friends;
+﻿set schema 'dinewithme';
 
--- add friends
-insert into friends(username1,username2,accepted)
-values('Insanity','Hertz',true);
+select * from users;
 
-insert into friends(username1,username2,accepted)
-values('Insanity','melrk161',false);
+insert into friends(user1,user2, accepted)
+values(1,2,false);
 
-insert into friends(username1,username2,accepted)
-values('Hertz','melrk161',true);
-
-
---select friends
-select * from friends;
+insert into friends(user1,user2, accepted)
+values(3,2,false);

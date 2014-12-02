@@ -18,7 +18,7 @@ import net.itca.dwm.interfaces.Datasource;
 public class Database implements Datasource
 {
 	private Connection connection;
-	private String url;
+	private String url = "jdbc:postgresql://127.0.0.1:5432/postgres";
 	private String dbpassword = "local";
 	public Database()
 	{
@@ -26,7 +26,6 @@ public class Database implements Datasource
 		{
 			Class.forName("org.postgresql.Driver");
 
-			url = "jdbc:postgresql://127.0.0.1:5432/postgres";
 
 		} catch (Exception ex)
 		{
