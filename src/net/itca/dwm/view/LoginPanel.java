@@ -1,5 +1,6 @@
 package net.itca.dwm.view;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -19,15 +20,15 @@ public class LoginPanel extends JPanel
 	private JLabel usernameLabel, passwordLabel;
 	private JTextField username;
 	private JPasswordField password;
-	private JButton loginButton;
+	private JButton loginButton, menuButton;
 	private LoginController controller;
-	
+
 	public LoginPanel(LoginController loginController)
 	{
 		controller = loginController;
 		setup();
 	}
-	
+
 	private void setup()
 	{
 		usernameLabel = new JLabel("username");
@@ -35,21 +36,39 @@ public class LoginPanel extends JPanel
 		username = new JTextField(10);
 		password = new JPasswordField(10);
 		loginButton = new JButton("login");
+		menuButton = new JButton("menu");
+
+		JPanel dataPanel = new JPanel();
+		dataPanel.setLayout(new FlowLayout());
+		dataPanel.add(usernameLabel);
+		dataPanel.add(username);
+		dataPanel.add(passwordLabel);
+		dataPanel.add(password);
+		dataPanel.add(loginButton);
+		this.setLayout(new BorderLayout());
+		this.add(dataPanel, BorderLayout.CENTER);
+		this.add(menuButton, BorderLayout.WEST);
+		addListeners();
+	}
+
+	private void addListeners()
+	{
+		menuButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				controller.navigateToMenu();
+			}
+
+		});
+
 		loginButton.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent arg0)
 			{
 				controller.login("hello", "world");
 			}
-			
 		});
-		this.setLayout(new FlowLayout());
-		
-		this.add(usernameLabel);
-		this.add(username);
-		this.add(passwordLabel);
-		this.add(password);
-		this.add(loginButton);
+
 	}
 }

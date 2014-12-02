@@ -31,7 +31,6 @@ public class MainView extends JFrame
 	{
 		if(mainView==null)
 		{
-			System.out.println("here");
 			mainView = new MainView();
 			mainView.setSize(600,400);
 			mainView.setTitle("Dine with me");

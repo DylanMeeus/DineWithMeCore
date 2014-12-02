@@ -17,17 +17,6 @@ public class Launcher
 {
 	public static void main(String[] args)
 	{
-//		System.out.println("setting up database");
-//		Database db = new Database();
-//		try
-//		{
-//			db.createUser("Vasco", "vasco", "vasco");
-//		}
-//		catch(Exception ex)
-//		{
-//			ex.printStackTrace();
-//		}
-//		
 		gui();
 	}
 
@@ -35,7 +24,6 @@ public class Launcher
 	{
 		MainView mv = MainView.getMainView();
 		MenuPanel startPanel = new MenuPanel(new MenuController(new DineWithMeFacade()));
-		System.out.println("lol");
 		mv.setMainPanel(startPanel);
 	}		
 }

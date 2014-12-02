@@ -40,5 +40,15 @@ public class MenuPanel extends JPanel
 			}
 			
 		});
+		
+		createUserScreen.addActionListener(new ActionListener()
+		{
+
+			public void actionPerformed(ActionEvent arg0)
+			{
+				controller.navigateCreateUser();
+			}
+			
+		});
 	}
 }
