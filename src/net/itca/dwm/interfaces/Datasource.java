@@ -10,8 +10,10 @@ import net.itca.dwm.exceptions.UserNotFoundException;
  * @author Dylan
  * Interface that defines what the datasource for saving / editing application objects needs to implement
  */
+
 public interface Datasource
 {
+	
 	/**
 	 * Checks the username and password against the database entry
 	 * Returns true if login is succesful
@@ -45,5 +47,5 @@ public interface Datasource
 	 * @return
 	 */
 	public boolean acceptFriend(String user, String friend);
-
+	
 }

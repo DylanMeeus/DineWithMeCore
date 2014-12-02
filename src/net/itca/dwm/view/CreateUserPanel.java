@@ -85,7 +85,7 @@ public class CreateUserPanel extends JPanel
 				String passwordString = password.getText();
 				String firstString = firstname.getText();
 				String lastString = lastname.getText();
-
+				controller.createUser(usernameString, passwordString, firstString, lastString);
 			}
 
 		});

@@ -14,10 +14,10 @@ public class LoginController
 	}
 	
 	
-	public void login(String username, String password)
+	public boolean login(String username, String password)
 	{
 		String pwEncrypted = facade.encrypt(password);
-		facade.login(username, pwEncrypted);
+		return facade.login(username, pwEncrypted);
 	}
 	
 	public void navigateToMenu()

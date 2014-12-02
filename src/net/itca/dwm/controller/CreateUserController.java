@@ -23,7 +23,16 @@ public class CreateUserController
 	
 	public void createUser(String username, String password, String first, String last)
 	{
+		System.out.println("Controller creating user");
 		String encryptedPassword = facade.encrypt(password);
+		try
+		{
+			facade.createUser(username, encryptedPassword, first, last);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 
 }

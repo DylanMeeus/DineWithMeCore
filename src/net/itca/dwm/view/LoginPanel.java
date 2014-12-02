@@ -66,7 +66,9 @@ public class LoginPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				controller.login("hello", "world");
+				String usernameString = username.getText();
+				String passwordString = username.getText();
+				System.out.println(controller.login(usernameString,passwordString));
 			}
 		});
 

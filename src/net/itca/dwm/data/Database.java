@@ -15,18 +15,19 @@ import net.itca.dwm.interfaces.Datasource;
  * 
  * @author Dylan Only database, access with JDBC.
  */
-public class Database implements Datasource
+public class Database /* implements Datasource */
 {
-	private Connection connection;
-	private String url = "jdbc:postgresql://127.0.0.1:5432/postgres";
-	private String dbpassword = "local";
+	protected Connection connection;
+	protected String url = "jdbc:postgresql://127.0.0.1:5432/postgres";
+	protected String dbpassword = "local";
+	protected String schema = "dinewithme";
+
 	public Database()
 	{
 		try
 		{
 			Class.forName("org.postgresql.Driver");
 
-
 		} catch (Exception ex)
 		{
 			ex.printStackTrace();
@@ -34,97 +35,35 @@ public class Database implements Datasource
 
 	}
 
-	public boolean login(String username, String password)
+	protected void openConnection()
 	{
-		boolean succes = false;
 		try
 		{
-			connection = DriverManager.getConnection(url, "postgres",
-					dbpassword);
-			String loginString = "select count(username) from dwmusers where username='"
-					+ username + "' and password='" + password + "'";
-			System.out.println("SQL: " + loginString);
-			Statement loginStatement = connection.createStatement();
-			ResultSet res = loginStatement.executeQuery(((loginString)));
-			while (res.next())
-			{
-				if (res.getShort("count") == 1)
-				{
-					succes = true;
-				}
-			}
-
-		} catch (Exception ex)
+			if(connection==null)
+				connection = DriverManager.getConnection(url, "postgres",dbpassword);
+		
+			Statement statement = connection.createStatement(); 
+			statement.execute("set search_path to '" + schema + "'"); 
+			statement.close();
+		} 
+		catch (SQLException e)
 		{
-			ex.printStackTrace();
-		} finally
-		{
-			if (connection != null)
-			{
-				try
-				{
-					connection.close();
-				} catch (SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
+			e.printStackTrace();
 		}
-
-		return succes;
 	}
 
-	public boolean createUser(String username, String nickname, String password) throws DatabaseException, PasswordException
+	protected void closeConnection()
 	{
-		boolean succes = false;
-		try
+		if (connection != null)
 		{
-			connection = DriverManager.getConnection(url, "postgres",
-					dbpassword);
-
-			// check if user exists
-			String getUsername = "select * from dwmusers where username='"
-					+ username + "';";
-			System.out.println("SQL: " + getUsername);
-			Statement getUserStatement = connection.createStatement();
-			ResultSet getUserResults = getUserStatement
-					.executeQuery(getUsername);
-			while (getUserResults.next())
+			try
 			{
-				if((getUserResults.getString("Username").equals(username)))
-				{
-					throw new DatabaseException("Username already in database!");
-				}
-			}
-
-			String createString = "insert into dwmusers(username,pseudo,password) values('" + username
-					+ "','" + nickname + "','" + password + "');";
-			System.out.println("SQL: " + createString);
-			Statement createStatement = connection.createStatement();
-			int affectedRows = createStatement.executeUpdate(((createString)));
-			if(affectedRows==1)
+				connection.close();
+			} catch (SQLException e)
 			{
-				succes = true;
-			}
-
-		} catch (Exception ex)
-		{
-			ex.printStackTrace();
-		} finally
-		{
-			if (connection != null)
-			{
-				try
-				{
-					connection.close();
-				} catch (SQLException e)
-				{
-					e.printStackTrace();
-				}
+				e.printStackTrace();
 			}
 		}
-
-		return succes;
 	}
 
 	public boolean addFriend(String user, String friend)
@@ -136,24 +75,28 @@ public class Database implements Datasource
 					dbpassword);
 
 			// check if user exists
-			String getUsername = "select * from dwmusers where username='"+ user + "';";
+			String getUsername = "select * from dwmusers where username='"
+					+ user + "';";
 			System.out.println("SQL: " + getUsername);
 			Statement getUserStatement = connection.createStatement();
-			ResultSet getUserResults = getUserStatement.executeQuery(getUsername);
+			ResultSet getUserResults = getUserStatement
+					.executeQuery(getUsername);
 			boolean inResultSet = false;
 			while (getUserResults.next())
 			{
-				if((getUserResults.getString("username").equals(user)))
+				if ((getUserResults.getString("username").equals(user)))
 				{
 					inResultSet = true;
 				}
 			}
-			if(!inResultSet) throw new UserNotFoundException("User not found in database");
-			String addString = "insert into friends(username1,username2,accepted)values('"+user+"','"+friend+"',false);";
+			if (!inResultSet)
+				throw new UserNotFoundException("User not found in database");
+			String addString = "insert into friends(username1,username2,accepted)values('"
+					+ user + "','" + friend + "',false);";
 			System.out.println("SQL: " + addString);
 			Statement createStatement = connection.createStatement();
 			int affectedRows = createStatement.executeUpdate(((addString)));
-			if(affectedRows==1)
+			if (affectedRows == 1)
 			{
 				succes = true;
 			}
@@ -183,13 +126,14 @@ public class Database implements Datasource
 		boolean succes = false;
 		try
 		{
-			connection = DriverManager.getConnection(url, "postgres",dbpassword);
-			// Check if they exist!
-			
-			String updateFriend = "update friends set accepted='true' where username1='"+user+"' and username2='"+friend+"';";
+			connection = DriverManager.getConnection(url, "postgres",
+					dbpassword);
+
+			String updateFriend = "update friends set accepted='true' where username1='"
+					+ user + "' and username2='" + friend + "';";
 			Statement updateStatement = connection.createStatement();
 			int affected = updateStatement.executeUpdate(updateFriend);
-			if(affected==1)
+			if (affected == 1)
 			{
 				succes = true;
 			}
@@ -210,7 +154,7 @@ public class Database implements Datasource
 			}
 		}
 
-		return succes;		
+		return succes;
 	}
 
 }
