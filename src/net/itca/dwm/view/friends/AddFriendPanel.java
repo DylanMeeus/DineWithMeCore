@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.itca.dwm.controller.AddFriendController;
+import net.itca.dwm.controller.friends.AddFriendController;
 
 public class AddFriendPanel extends JPanel
 {

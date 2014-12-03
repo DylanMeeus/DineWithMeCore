@@ -64,5 +64,11 @@ public class DineWithMeFacade
 	{
 		return null;
 	}
+	
+	public ArrayList<String> getFriendInvites()
+	{
+		FriendService friendService = new FriendService();
+		return friendService.getFriendInvites(session.getCurrentUser().getID());
+	}
 
 }

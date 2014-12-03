@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import net.itca.dwm.exceptions.UserNotFoundException;
 
@@ -90,4 +91,53 @@ public class FriendService extends Database
 		}
 		return exists;
 	}
+	
+	
+	public ArrayList<String> getFriendInvites(int userID)
+	{
+		ArrayList<String> invites = new ArrayList<String>();
+		try
+		{
+			openConnection();
+			
+			String inviteIDString = "select user1 from users inner join friends"
+					+" on users.userid = friends.user2 where friends.user2 = "+ userID + " and accepted = false";
+			
+			ArrayList<Integer> returnedIDs = new ArrayList<Integer>();			
+			Statement IDStatement = connection.createStatement();
+			ResultSet IDSet = IDStatement.executeQuery(inviteIDString); 
+			System.out.println("SQL: " + inviteIDString);
+			
+			while(IDSet.next())
+			{
+				returnedIDs.add(IDSet.getInt("user1"));
+			}
+			
+			for(int i = 0; i < returnedIDs.size(); i++)
+			{
+				String inviteString = "select username, firstname, lastname from users where userid="+returnedIDs.get(i)+";";
+				System.out.println("SQL: " + inviteString);
+				Statement inviteStatement = connection.createStatement();
+				ResultSet results = inviteStatement.executeQuery(inviteString);
+				while(results.next())
+				{
+					String entry = results.getString("username") + " " + results.getString("firstname") + " " + results.getString("lastname"); 
+					invites.add(entry);
+				}
+			}
+		
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		} finally
+		{
+			closeConnection();
+		}
+		
+		return invites;
+	}
+	
+	
+	
 }

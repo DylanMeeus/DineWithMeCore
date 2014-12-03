@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
-import net.itca.dwm.controller.ViewFriendsController;
+import net.itca.dwm.controller.friends.ViewFriendsController;
 
 public class ViewFriendsPanel extends JPanel
 {

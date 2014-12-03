@@ -13,7 +13,7 @@ import net.itca.dwm.controller.LoginHomeController;
 public class LoginHomePanel extends JPanel
 {
 	JButton logout, addFriend, viewFriends, viewEvents, createEvent,
-			viewRecipes, createRecipes;
+			viewRecipes, createRecipes, viewFriendInvites;
 	LoginHomeController lhcController; // Not the hadron collider! ;)
 
 	public LoginHomePanel(LoginHomeController controller)
@@ -32,6 +32,7 @@ public class LoginHomePanel extends JPanel
 		createEvent = new JButton("Create event");
 		viewRecipes = new JButton("View recipes");
 		createRecipes = new JButton("Create recipes");
+		viewFriendInvites = new JButton("View friend invites");
 		// Add them to the panel
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(10, 1));
@@ -40,6 +41,7 @@ public class LoginHomePanel extends JPanel
 		// Button
 		buttonPanel.add(addFriend);
 		buttonPanel.add(viewFriends);
+		buttonPanel.add(viewFriendInvites);
 		buttonPanel.add(viewEvents);
 		buttonPanel.add(createEvent);
 		buttonPanel.add(viewRecipes);
@@ -103,8 +105,18 @@ public class LoginHomePanel extends JPanel
 
 			public void actionPerformed(ActionEvent e)
 			{
-				lhcController.navigateViewRecipes();	
+				lhcController.navigateViewRecipes();
 			}
+		});
+
+		viewFriendInvites.addActionListener(new ActionListener()
+		{
+
+			public void actionPerformed(ActionEvent arg0)
+			{
+				lhcController.navigateViewFriendInvites();
+			}
+
 		});
 	}
 }
