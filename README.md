@@ -17,6 +17,12 @@ As of 3/12/2014:
 - Exception tunneling to controllers (instead of handling them in the facade)
 - Removed DataSource interface - chose for inheritance for easier connection management
 - Correct logout behaviour (Session no longer stores userID)
+- Friend system completed:
+	- Friend requests (sending, accepting, declining)
+	- View friends
+	- View invites
+- Refactored database to deal with friend system functions
+- Extending the facade to deal with new database system
 
 
 
