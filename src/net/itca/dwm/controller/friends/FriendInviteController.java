@@ -31,5 +31,23 @@ public class FriendInviteController
 		friendVector.addAll(invites);
 		return friendVector;
 	}
+	
+	public void acceptFriend(String friendEntry)
+	{
+		String username = friendEntry.split(" ")[0];
+		boolean succes = facade.acceptFriend(username);
+	}
 
+	public void declineRequest(String friendEntry)
+	{
+		String username = friendEntry.split(" ")[0];
+		try
+		{
+			boolean succes = facade.declineRequest(username);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}	
+	}
+	
 }

@@ -55,7 +55,7 @@ public class ViewFriendsPanel extends JPanel
 
 			public void ancestorAdded(AncestorEvent arg0)
 			{
-				controller.getFriends();
+				friendList.setListData(controller.getFriends());
 			}
 
 			public void ancestorMoved(AncestorEvent arg0)

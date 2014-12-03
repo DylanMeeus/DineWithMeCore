@@ -1,5 +1,6 @@
 package net.itca.dwm.controller.friends;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import net.itca.dwm.controller.LoginHomeController;
@@ -29,12 +30,12 @@ public class ViewFriendsController
 	 * Gets the friends belonging to the logged in user
 	 * @return
 	 */
-	public Vector getFriends()
+	public Vector<String> getFriends()
 	{
-		
-		
-		
-		return null;
+		ArrayList<String> friends = facade.getFriendsByUserID();
+		Vector<String> friendsVector = new Vector<String>();
+		friendsVector.addAll(friends);
+		return friendsVector;
 	}
 
 }

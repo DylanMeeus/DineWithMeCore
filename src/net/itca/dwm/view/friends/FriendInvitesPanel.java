@@ -19,12 +19,13 @@ public class FriendInvitesPanel extends JPanel
 	private FriendInviteController controller;
 	private JButton menuButton, acceptButton, declineButton;
 	private JList inviteList;
+
 	public FriendInvitesPanel(FriendInviteController ficontroller)
 	{
 		controller = ficontroller;
 		setup();
 	}
-	
+
 	private void setup()
 	{
 		this.setLayout(new BorderLayout());
@@ -34,18 +35,19 @@ public class FriendInvitesPanel extends JPanel
 		JPanel dataPanel = new JPanel();
 		dataPanel.setLayout(new BorderLayout());
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new GridLayout(1,2));
-		buttonPanel.add(acceptButton); buttonPanel.add(declineButton);
+		buttonPanel.setLayout(new GridLayout(1, 2));
+		buttonPanel.add(acceptButton);
+		buttonPanel.add(declineButton);
 		dataPanel.add(buttonPanel, BorderLayout.SOUTH);
 		inviteList = new JList();
-		dataPanel.add(inviteList,BorderLayout.CENTER);
-		
+		dataPanel.add(inviteList, BorderLayout.CENTER);
+
 		// Add to panel
 		this.add(dataPanel, BorderLayout.CENTER);
 		this.add(menuButton, BorderLayout.WEST);
 		addListeners();
 	}
-	
+
 	private void addListeners()
 	{
 		this.addAncestorListener(new AncestorListener()
@@ -60,16 +62,16 @@ public class FriendInvitesPanel extends JPanel
 			public void ancestorMoved(AncestorEvent arg0)
 			{
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			public void ancestorRemoved(AncestorEvent arg0)
 			{
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
+
 		menuButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
@@ -77,8 +79,23 @@ public class FriendInvitesPanel extends JPanel
 				controller.navigateMenu();
 			}
 		});
+
+		acceptButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				controller.acceptFriend(inviteList.getSelectedValue().toString());
+			}
+		});
+		
+		declineButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				controller.declineRequest(inviteList.getSelectedValue().toString());
+			}
+		});
+	
 	}
-	
-	
-	
+
 }

@@ -68,7 +68,7 @@ public class FriendService extends Database
 		{
 			return results.getInt("userid");
 		}
-		
+
 		return -1;
 	}
 
@@ -91,53 +91,151 @@ public class FriendService extends Database
 		}
 		return exists;
 	}
-	
-	
+
 	public ArrayList<String> getFriendInvites(int userID)
 	{
 		ArrayList<String> invites = new ArrayList<String>();
 		try
 		{
 			openConnection();
-			
+
 			String inviteIDString = "select user1 from users inner join friends"
-					+" on users.userid = friends.user2 where friends.user2 = "+ userID + " and accepted = false";
-			
-			ArrayList<Integer> returnedIDs = new ArrayList<Integer>();			
+					+ " on users.userid = friends.user2 where friends.user2 = "
+					+ userID + " and accepted = false";
+
+			ArrayList<Integer> returnedIDs = new ArrayList<Integer>();
 			Statement IDStatement = connection.createStatement();
-			ResultSet IDSet = IDStatement.executeQuery(inviteIDString); 
+			ResultSet IDSet = IDStatement.executeQuery(inviteIDString);
 			System.out.println("SQL: " + inviteIDString);
-			
-			while(IDSet.next())
+
+			while (IDSet.next())
 			{
 				returnedIDs.add(IDSet.getInt("user1"));
 			}
-			
-			for(int i = 0; i < returnedIDs.size(); i++)
+
+			for (int i = 0; i < returnedIDs.size(); i++)
 			{
-				String inviteString = "select username, firstname, lastname from users where userid="+returnedIDs.get(i)+";";
-				System.out.println("SQL: " + inviteString);
-				Statement inviteStatement = connection.createStatement();
-				ResultSet results = inviteStatement.executeQuery(inviteString);
-				while(results.next())
-				{
-					String entry = results.getString("username") + " " + results.getString("firstname") + " " + results.getString("lastname"); 
-					invites.add(entry);
-				}
+				invites.add(getUserInfoByID(returnedIDs.get(i)));
 			}
-		
-		}
-		catch (Exception ex)
+
+		} catch (Exception ex)
 		{
 			ex.printStackTrace();
 		} finally
 		{
 			closeConnection();
 		}
-		
+
 		return invites;
 	}
+
+	public boolean acceptFriend(int currentUserID, String friendname)
+	{
+		boolean accepted = false;
+		try
+		{
+			openConnection();
+			String acceptString = "update friends set accepted = true where user1="
+					+ getFriendID(friendname)
+					+ " and user2="
+					+ currentUserID
+					+ ";";
+			Statement acceptStatement = connection.createStatement();
+			int affected = acceptStatement.executeUpdate(acceptString);
+			if (affected == 1)
+			{
+				accepted = true;
+			}
+		} catch (Exception ex)
+		{
+			ex.printStackTrace();
+		} finally
+		{
+			closeConnection();
+		}
+		return accepted;
+	}
+
+	public ArrayList<String> getFriends(int currentUserID)
+	{
+		ArrayList<String> friends = new ArrayList<String>();
+		ArrayList<Integer> friendids = new ArrayList<Integer>();
+		try
+		{
+			openConnection();
+			String getFriendsIDs = "select * from friends where (user1="
+					+ currentUserID + " or user2=" + currentUserID + ") and accepted=true;";
+			Statement getFriendIDStatement = connection.createStatement();
+			ResultSet friendIDResults = getFriendIDStatement
+					.executeQuery(getFriendsIDs);
+			while (friendIDResults.next())
+			{
+				int user1ID = friendIDResults.getInt("user1");
+				int user2ID = friendIDResults.getInt("user2");
+				if (user1ID != currentUserID)
+					friendids.add(user1ID);
+				if (user2ID != currentUserID)
+					friendids.add(user2ID);
+			}
+
+			for (int i = 0; i < friendids.size(); i++)
+			{
+				friends.add(getUserInfoByID(friendids.get(i)));
+			}
+
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+
+		return friends;
+	}
+
+	private String getUserInfoByID(int userid) throws SQLException
+	{
+		String inviteString = "select username, firstname, lastname from users where userid="
+				+ userid + ";";
+		System.out.println("SQL: " + inviteString);
+		Statement inviteStatement = connection.createStatement();
+		ResultSet results = inviteStatement.executeQuery(inviteString);
+		while (results.next())
+		{
+			String entry = results.getString("username") + " "
+					+ results.getString("firstname") + " "
+					+ results.getString("lastname");
+			return entry;
+		}
+		return null;
+	}
 	
-	
-	
+	public boolean declineRequest(int currentUserID, String friend) throws Exception
+	{
+		
+		boolean succes = false;
+		try
+		{
+			openConnection();
+			int friendID = getFriendID(friend);
+			String deleteRequest = "delete from friends where user2=" + currentUserID + " and user1=" + friendID+";";
+			System.out.println("SQL: " + deleteRequest);
+			Statement deleteStatement = connection.createStatement();
+			int affected = deleteStatement.executeUpdate(deleteRequest);
+			if(affected == 1)
+				succes = true;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+		return succes;
+	}
 }

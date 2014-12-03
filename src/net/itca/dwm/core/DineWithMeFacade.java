@@ -60,9 +60,16 @@ public class DineWithMeFacade
 		friendService.addFriend(session.getCurrentUser().getID(), username);
 	}
 	
-	public ArrayList<String> getFriendsByID(int id)
+	public boolean acceptFriend(String friend)
 	{
-		return null;
+		FriendService friendService = new FriendService();
+		return friendService.acceptFriend(session.getCurrentUser().getID(),friend);
+	}
+	
+	public ArrayList<String> getFriendsByUserID()
+	{
+		FriendService friendService = new FriendService();
+		return friendService.getFriends(session.getCurrentUser().getID());
 	}
 	
 	public ArrayList<String> getFriendInvites()
@@ -71,4 +78,10 @@ public class DineWithMeFacade
 		return friendService.getFriendInvites(session.getCurrentUser().getID());
 	}
 
+	public boolean declineRequest(String friend) throws Exception
+	{
+		FriendService friendService = new FriendService();
+		return friendService.declineRequest(session.getCurrentUser().getID(),friend);		
+	}
+	
 }

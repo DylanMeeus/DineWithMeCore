@@ -66,42 +66,5 @@ public class Database /* implements Datasource */
 		}
 	}
 
-	
-
-	public boolean acceptFriend(String user, String friend)
-	{
-		boolean succes = false;
-		try
-		{
-			connection = DriverManager.getConnection(url, "postgres",
-					dbpassword);
-
-			String updateFriend = "update friends set accepted='true' where username1='"
-					+ user + "' and username2='" + friend + "';";
-			Statement updateStatement = connection.createStatement();
-			int affected = updateStatement.executeUpdate(updateFriend);
-			if (affected == 1)
-			{
-				succes = true;
-			}
-		} catch (Exception ex)
-		{
-			ex.printStackTrace();
-		} finally
-		{
-			if (connection != null)
-			{
-				try
-				{
-					connection.close();
-				} catch (SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
-
-		return succes;
-	}
 
 }
