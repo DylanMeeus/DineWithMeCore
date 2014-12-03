@@ -1,27 +1,39 @@
 package net.itca.dwm.controller;
 
+import java.util.Vector;
+
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.LoginHomePanel;
 import net.itca.dwm.view.MainView;
+import net.itca.dwm.view.MenuPanel;
 
-public class AddFriendController
+public class ViewFriendsController
 {
-	private DineWithMeFacade facade;
-	public AddFriendController(DineWithMeFacade dwmFacade)
+	
+	DineWithMeFacade facade;
+	public ViewFriendsController(DineWithMeFacade dwmFacade)
 	{
 		facade = dwmFacade;
 	}
 	
-	public void navigateMenu()
+	
+	public void navigateToMenu()
 	{
 		LoginHomePanel loginHome = new LoginHomePanel(new LoginHomeController());
 		MainView mainView = MainView.getMainView();
 		mainView.setMainPanel(loginHome);
 	}
 	
-	public void addFriend(String friend)
+	/**
+	 * Gets the friends belonging to the logged in user
+	 * @return
+	 */
+	public Vector getFriends()
 	{
-		facade.addFriend(friend);
+		
+		
+		
+		return null;
 	}
-	
+
 }

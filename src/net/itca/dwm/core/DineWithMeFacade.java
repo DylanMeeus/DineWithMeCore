@@ -1,5 +1,8 @@
 package net.itca.dwm.core;
 
+import java.util.ArrayList;
+
+import net.itca.dwm.data.FriendService;
 import net.itca.dwm.data.UserConnection;
 import net.itca.dwm.exceptions.DatabaseException;
 import net.itca.dwm.exceptions.PasswordException;
@@ -49,6 +52,17 @@ public class DineWithMeFacade
 	{
 		UserConnection userConnection = new UserConnection();
 		return userConnection.getUserID(user);	
+	}
+	
+	public void addFriend(String username)
+	{
+		FriendService friendService = new FriendService();
+		friendService.addFriend(session.getCurrentUser().getID(), username);
+	}
+	
+	public ArrayList<String> getFriendsByID(int id)
+	{
+		return null;
 	}
 
 }

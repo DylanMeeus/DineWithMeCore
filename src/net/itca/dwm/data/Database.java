@@ -66,60 +66,7 @@ public class Database /* implements Datasource */
 		}
 	}
 
-	public boolean addFriend(String user, String friend)
-	{
-		boolean succes = false;
-		try
-		{
-			connection = DriverManager.getConnection(url, "postgres",
-					dbpassword);
-
-			// check if user exists
-			String getUsername = "select * from dwmusers where username='"
-					+ user + "';";
-			System.out.println("SQL: " + getUsername);
-			Statement getUserStatement = connection.createStatement();
-			ResultSet getUserResults = getUserStatement
-					.executeQuery(getUsername);
-			boolean inResultSet = false;
-			while (getUserResults.next())
-			{
-				if ((getUserResults.getString("username").equals(user)))
-				{
-					inResultSet = true;
-				}
-			}
-			if (!inResultSet)
-				throw new UserNotFoundException("User not found in database");
-			String addString = "insert into friends(username1,username2,accepted)values('"
-					+ user + "','" + friend + "',false);";
-			System.out.println("SQL: " + addString);
-			Statement createStatement = connection.createStatement();
-			int affectedRows = createStatement.executeUpdate(((addString)));
-			if (affectedRows == 1)
-			{
-				succes = true;
-			}
-
-		} catch (Exception ex)
-		{
-			ex.printStackTrace();
-		} finally
-		{
-			if (connection != null)
-			{
-				try
-				{
-					connection.close();
-				} catch (SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
-
-		return succes;
-	}
+	
 
 	public boolean acceptFriend(String user, String friend)
 	{
