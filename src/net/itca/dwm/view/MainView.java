@@ -1,7 +1,10 @@
 package net.itca.dwm.view;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -23,8 +26,10 @@ public class MainView extends JFrame
 	private DineWithMeFacade facade = new DineWithMeFacade();
 	private static MainView mainView;
 	private JPanel currentPanel;
+	private static JButton menuButton;
 	private MainView()
 	{
+		
 	}
 	
 	public static MainView getMainView()

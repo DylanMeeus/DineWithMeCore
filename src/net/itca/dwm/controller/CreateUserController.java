@@ -24,6 +24,7 @@ public class CreateUserController
 	public void createUser(String username, String password, String first, String last)
 	{
 		System.out.println("Controller creating user");
+		System.out.println("Encrypting: " + password);
 		String encryptedPassword = facade.encrypt(password);
 		try
 		{

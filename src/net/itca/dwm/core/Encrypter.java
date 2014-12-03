@@ -6,11 +6,12 @@ public class Encrypter
 {
 	public Encrypter()
 	{
-		
+
 	}
-	
+
 	/**
 	 * SHA-1 encryption.
+	 * 
 	 * @param toEncrypt
 	 * @return
 	 */
@@ -20,33 +21,32 @@ public class Encrypter
 		try
 		{
 			messageDigest = MessageDigest.getInstance("SHA-1");
-			byte[] encoded =messageDigest.digest(toEncrypt.getBytes());
+			byte[] encoded = messageDigest.digest(toEncrypt.getBytes());
 			return byteArrayToHexString(encoded);
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			ex.printStackTrace();
-		}
-		finally
+		} finally
 		{
 			messageDigest = null;
 		}
-		
+
 		return "";
 	}
-	
+
 	/**
 	 * Convert to HEX string (base 16)
+	 * 
 	 * @param b
 	 * @return
 	 */
 	private String byteArrayToHexString(byte[] b)
 	{
-		 String result = "";
-		  for (int i=0; i < b.length; i++) {
-		    result +=
-		          Integer.toString( ( b[i] & 0xff ) + 0x100, 16).substring( 1 );
-		  }
-		  return result;
+		String result = "";
+		for (int i = 0; i < b.length; i++)
+		{
+			result += Integer.toString((b[i] & 0xff) + 0x100, 16).substring(1);
+		}
+		return result;
 	}
 }

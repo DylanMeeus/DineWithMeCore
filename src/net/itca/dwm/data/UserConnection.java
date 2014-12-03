@@ -100,6 +100,40 @@ public class UserConnection extends Database
 
 		return succes;
 	}
+	
+	/**
+	 * Returns the userID, or -1 when the user was not present in the database.
+	 * @param username
+	 * @return
+	 */
+	public int getUserID(String username)
+	{
+		
+		int id = -1; // -1 not found
+		try
+		{
+			openConnection();
+			String getIDString = "select userid from users where username='" + username + "';";
+			Statement getIDStatement = connection.createStatement();
+			ResultSet results = getIDStatement.executeQuery(getIDString);
+			while(results.next())
+			{
+				id = results.getInt("userid");
+				System.out.println(id);
+				return id;
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+		
+		return id;
+	}
 
 
 }

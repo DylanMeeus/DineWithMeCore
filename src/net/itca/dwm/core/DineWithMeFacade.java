@@ -3,6 +3,7 @@ package net.itca.dwm.core;
 import net.itca.dwm.data.UserConnection;
 import net.itca.dwm.exceptions.DatabaseException;
 import net.itca.dwm.exceptions.PasswordException;
+import net.itca.dwm.core.ActiveSession;
 
 /**
  * 
@@ -11,6 +12,7 @@ import net.itca.dwm.exceptions.PasswordException;
  */
 public class DineWithMeFacade
 {
+	private ActiveSession session = ActiveSession.getActiveSession();
 	public boolean login(String username, String password)
 	{
 		UserConnection userConnection = new UserConnection();
@@ -31,6 +33,22 @@ public class DineWithMeFacade
 	{
 		UserConnection userConnection = new UserConnection();
 		userConnection.createUser(username, firstname, lastname, password);
+	}
+	
+	public void setCurrentUser(User current)
+	{
+		session.setCurrentUser(current);
+	}
+	
+	public User getCurrentUser()
+	{
+		return session.getCurrentUser();
+	}
+	
+	public int getUserID(String user)
+	{
+		UserConnection userConnection = new UserConnection();
+		return userConnection.getUserID(user);	
 	}
 
 }
