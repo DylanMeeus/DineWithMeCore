@@ -20,8 +20,8 @@ public class CreateRecipePanel extends JPanel
 	private CreateRecipeController controller;
 	private JButton menuButton, createButton;
 	private JTextArea ingredients, instructions;
-	private JLabel nameLabel;
-	private JTextField nameField;
+	private JLabel nameLabel, peopleLabel;
+	private JTextField nameField, peopleField;
 
 	public CreateRecipePanel(CreateRecipeController crc)
 	{
@@ -35,7 +35,9 @@ public class CreateRecipePanel extends JPanel
 		menuButton = new JButton("Menu");
 		createButton = new JButton("Create");
 		nameLabel = new JLabel("name");
+		peopleLabel = new JLabel("people");
 		nameField = new JTextField(5);
+		peopleField = new JTextField(5);
 		ingredients = new JTextArea();
 		instructions = new JTextArea();
 
@@ -46,9 +48,11 @@ public class CreateRecipePanel extends JPanel
 		textfieldsPanel.add(new JLabel("instructions"));
 		textfieldsPanel.add(instructions);
 		JPanel namePanel = new JPanel();
-		namePanel.setLayout(new GridLayout(2, 1));
+		namePanel.setLayout(new GridLayout(4, 1));
 		namePanel.add(nameLabel);
 		namePanel.add(nameField);
+		namePanel.add(peopleLabel);
+		namePanel.add(peopleField);
 		JPanel combiPanel = new JPanel();
 		combiPanel.setLayout(new BorderLayout());
 		combiPanel.add(namePanel, BorderLayout.NORTH);
@@ -77,7 +81,8 @@ public class CreateRecipePanel extends JPanel
 				String recipeName = nameField.getText();
 				String recipeIngr = ingredients.getText();
 				String recipeInstr = instructions.getText();
-				controller.createRecipe(recipeName, recipeIngr, recipeInstr);
+				int people = Integer.parseInt(peopleField.getText());
+				controller.createRecipe(recipeName, recipeIngr, recipeInstr, people);
 			}
 		});
 	}

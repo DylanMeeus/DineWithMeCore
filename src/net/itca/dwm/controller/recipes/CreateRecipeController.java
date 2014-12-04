@@ -21,9 +21,9 @@ public class CreateRecipeController
 		mainView.setMainPanel(loginHome);
 	}
 	
-	public void createRecipe(String name, String ingredients, String instructions)
+	public void createRecipe(String name, String ingredients, String instructions, int people)
 	{
 		//System.out.println("test: " + facade.encodeForDB(ingredients));
-		facade.createRecipe(name, facade.encodeForDB(ingredients), facade.encodeForDB(instructions));
+		facade.createRecipe(name, facade.encodeForDB(ingredients), facade.encodeForDB(instructions), people);
 	}
 }

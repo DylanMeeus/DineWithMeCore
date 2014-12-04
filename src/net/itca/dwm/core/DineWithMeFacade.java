@@ -87,10 +87,10 @@ public class DineWithMeFacade
 	}
 	
 	
-	public void createRecipe(String name, String ingredients, String instructions)
+	public void createRecipe(String name, String ingredients, String instructions, int people)
 	{
 		RecipeService recipeService = new RecipeService();
-		recipeService.createRecipe(name, ingredients, instructions, session.getCurrentUser().getID());
+		recipeService.createRecipe(name, ingredients, instructions, session.getCurrentUser().getID(), people);
 	}
 	
 	public ArrayList<String> getRecipes()
@@ -103,5 +103,18 @@ public class DineWithMeFacade
 	{
 		TextEncoder encoder = new TextEncoder();
 		return encoder.encode(toEncode);
+	}
+	
+	public String getRecipeDetails(String recipeName)
+	{
+		TextEncoder decoder = new TextEncoder();
+		RecipeService recipeService = new RecipeService();
+		return decoder.decode(recipeService.getRecipeDetails(session.getCurrentUser().getID(), recipeName));
+	}
+	
+	public void deleteRecipe(String recipe)
+	{
+		RecipeService recipeService = new RecipeService();
+		recipeService.deleteRecipe(session.getCurrentUser().getID(), recipe);
 	}
 }

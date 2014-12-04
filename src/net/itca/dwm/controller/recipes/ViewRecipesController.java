@@ -16,7 +16,7 @@ import net.itca.dwm.view.MainView;
 public class ViewRecipesController
 {
 
-	DineWithMeFacade facade;
+	private DineWithMeFacade facade;
 	public ViewRecipesController(DineWithMeFacade dwmfacade)
 	{
 		facade = dwmfacade;
@@ -39,6 +39,16 @@ public class ViewRecipesController
 		Vector<String> recipeVector = new Vector<String>();
 		recipeVector.addAll(recipes);
 		return recipeVector;
+	}
+	
+	public String getDetails(String entry)
+	{
+		return facade.getRecipeDetails(entry);
+	}
+	
+	public void deleteRecipe(String entry)
+	{
+		facade.deleteRecipe(entry);
 	}
 	
 }
