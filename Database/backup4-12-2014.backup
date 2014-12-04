@@ -1,0 +1,544 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.3.5
+-- Dumped by pg_dump version 9.3.1
+-- Started on 2014-12-04 16:29:33
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'SQL_ASCII';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 8 (class 2615 OID 57344)
+-- Name: dinewithme; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA dinewithme;
+
+
+ALTER SCHEMA dinewithme OWNER TO postgres;
+
+SET search_path = dinewithme, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 185 (class 1259 OID 57444)
+-- Name: events; Type: TABLE; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE events (
+    eventid integer NOT NULL,
+    name character varying(40),
+    eventdate date,
+    hostid integer,
+    recipeid integer
+);
+
+
+ALTER TABLE dinewithme.events OWNER TO postgres;
+
+--
+-- TOC entry 184 (class 1259 OID 57442)
+-- Name: event_eventid_seq; Type: SEQUENCE; Schema: dinewithme; Owner: postgres
+--
+
+CREATE SEQUENCE event_eventid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE dinewithme.event_eventid_seq OWNER TO postgres;
+
+--
+-- TOC entry 2012 (class 0 OID 0)
+-- Dependencies: 184
+-- Name: event_eventid_seq; Type: SEQUENCE OWNED BY; Schema: dinewithme; Owner: postgres
+--
+
+ALTER SEQUENCE event_eventid_seq OWNED BY events.eventid;
+
+
+--
+-- TOC entry 186 (class 1259 OID 57455)
+-- Name: eventinvitees; Type: TABLE; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE eventinvitees (
+    eventid integer,
+    inviteeid integer,
+    accepted boolean
+);
+
+
+ALTER TABLE dinewithme.eventinvitees OWNER TO postgres;
+
+--
+-- TOC entry 179 (class 1259 OID 57393)
+-- Name: friends; Type: TABLE; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE friends (
+    id bigint NOT NULL,
+    user1 integer,
+    user2 integer,
+    accepted boolean
+);
+
+
+ALTER TABLE dinewithme.friends OWNER TO postgres;
+
+--
+-- TOC entry 178 (class 1259 OID 57391)
+-- Name: friends_id_seq; Type: SEQUENCE; Schema: dinewithme; Owner: postgres
+--
+
+CREATE SEQUENCE friends_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE dinewithme.friends_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2013 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: friends_id_seq; Type: SEQUENCE OWNED BY; Schema: dinewithme; Owner: postgres
+--
+
+ALTER SEQUENCE friends_id_seq OWNED BY friends.id;
+
+
+--
+-- TOC entry 181 (class 1259 OID 57413)
+-- Name: recipes; Type: TABLE; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE recipes (
+    recipeid integer NOT NULL,
+    name character varying(30),
+    ingredients text,
+    instructions text,
+    userid integer,
+    people integer
+);
+
+
+ALTER TABLE dinewithme.recipes OWNER TO postgres;
+
+--
+-- TOC entry 180 (class 1259 OID 57411)
+-- Name: recipes_recipeid_seq; Type: SEQUENCE; Schema: dinewithme; Owner: postgres
+--
+
+CREATE SEQUENCE recipes_recipeid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE dinewithme.recipes_recipeid_seq OWNER TO postgres;
+
+--
+-- TOC entry 2014 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: recipes_recipeid_seq; Type: SEQUENCE OWNED BY; Schema: dinewithme; Owner: postgres
+--
+
+ALTER SEQUENCE recipes_recipeid_seq OWNED BY recipes.recipeid;
+
+
+--
+-- TOC entry 183 (class 1259 OID 57426)
+-- Name: userrecipes; Type: TABLE; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE userrecipes (
+    id integer NOT NULL,
+    userid integer,
+    recipeid integer
+);
+
+
+ALTER TABLE dinewithme.userrecipes OWNER TO postgres;
+
+--
+-- TOC entry 182 (class 1259 OID 57424)
+-- Name: userrecipes_id_seq; Type: SEQUENCE; Schema: dinewithme; Owner: postgres
+--
+
+CREATE SEQUENCE userrecipes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE dinewithme.userrecipes_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2015 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: userrecipes_id_seq; Type: SEQUENCE OWNED BY; Schema: dinewithme; Owner: postgres
+--
+
+ALTER SEQUENCE userrecipes_id_seq OWNED BY userrecipes.id;
+
+
+--
+-- TOC entry 177 (class 1259 OID 57353)
+-- Name: users; Type: TABLE; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE users (
+    userid integer NOT NULL,
+    username character varying(40),
+    firstname character varying(40),
+    lastname character varying(40),
+    password character varying(60)
+);
+
+
+ALTER TABLE dinewithme.users OWNER TO postgres;
+
+--
+-- TOC entry 176 (class 1259 OID 57351)
+-- Name: users_userid_seq; Type: SEQUENCE; Schema: dinewithme; Owner: postgres
+--
+
+CREATE SEQUENCE users_userid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE dinewithme.users_userid_seq OWNER TO postgres;
+
+--
+-- TOC entry 2016 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: users_userid_seq; Type: SEQUENCE OWNED BY; Schema: dinewithme; Owner: postgres
+--
+
+ALTER SEQUENCE users_userid_seq OWNED BY users.userid;
+
+
+--
+-- TOC entry 1870 (class 2604 OID 57447)
+-- Name: eventid; Type: DEFAULT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY events ALTER COLUMN eventid SET DEFAULT nextval('event_eventid_seq'::regclass);
+
+
+--
+-- TOC entry 1867 (class 2604 OID 57396)
+-- Name: id; Type: DEFAULT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY friends ALTER COLUMN id SET DEFAULT nextval('friends_id_seq'::regclass);
+
+
+--
+-- TOC entry 1868 (class 2604 OID 57416)
+-- Name: recipeid; Type: DEFAULT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY recipes ALTER COLUMN recipeid SET DEFAULT nextval('recipes_recipeid_seq'::regclass);
+
+
+--
+-- TOC entry 1869 (class 2604 OID 57429)
+-- Name: id; Type: DEFAULT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY userrecipes ALTER COLUMN id SET DEFAULT nextval('userrecipes_id_seq'::regclass);
+
+
+--
+-- TOC entry 1866 (class 2604 OID 57356)
+-- Name: userid; Type: DEFAULT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY users ALTER COLUMN userid SET DEFAULT nextval('users_userid_seq'::regclass);
+
+
+--
+-- TOC entry 2017 (class 0 OID 0)
+-- Dependencies: 184
+-- Name: event_eventid_seq; Type: SEQUENCE SET; Schema: dinewithme; Owner: postgres
+--
+
+SELECT pg_catalog.setval('event_eventid_seq', 3, true);
+
+
+--
+-- TOC entry 2007 (class 0 OID 57455)
+-- Dependencies: 186
+-- Data for Name: eventinvitees; Type: TABLE DATA; Schema: dinewithme; Owner: postgres
+--
+
+COPY eventinvitees (eventid, inviteeid, accepted) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2006 (class 0 OID 57444)
+-- Dependencies: 185
+-- Data for Name: events; Type: TABLE DATA; Schema: dinewithme; Owner: postgres
+--
+
+COPY events (eventid, name, eventdate, hostid, recipeid) FROM stdin;
+1	dinner	2014-12-05	15	1
+2	Spaghetti Zeit!	2014-12-09	15	4
+3	Aardbeien bij moeke	2014-12-04	17	5
+\.
+
+
+--
+-- TOC entry 2000 (class 0 OID 57393)
+-- Dependencies: 179
+-- Data for Name: friends; Type: TABLE DATA; Schema: dinewithme; Owner: postgres
+--
+
+COPY friends (id, user1, user2, accepted) FROM stdin;
+3	9	10	f
+4	9	11	t
+5	15	12	t
+6	16	15	f
+8	17	15	t
+\.
+
+
+--
+-- TOC entry 2018 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: friends_id_seq; Type: SEQUENCE SET; Schema: dinewithme; Owner: postgres
+--
+
+SELECT pg_catalog.setval('friends_id_seq', 8, true);
+
+
+--
+-- TOC entry 2002 (class 0 OID 57413)
+-- Dependencies: 181
+-- Data for Name: recipes; Type: TABLE DATA; Schema: dinewithme; Owner: postgres
+--
+
+COPY recipes (recipeid, name, ingredients, instructions, userid, people) FROM stdin;
+1	Tomato Soup	Noodles~Water~Spices	Boil water and add noodles~add spices~NO SOUP FOR YOU!	15	\N
+2	Spaghetti Bolognaise	Spaghetti 375g~4 tomatoes~2 paprikas	Boil 3.75L of water~use tomatoes to make sauce~add 2 paprikas	12	\N
+4	Spaghetti	Spaghetti stuff~Spices	Put spaghetti in water~Wait some time~Eat	15	4
+5	Aardbeien vlznbeekse	1/2 kg aardbeien~1/2 kg tafeldruiven~5cl water~100 gr druivenconfituur~50 gr chocolade~1 citroen + Citroenmelisse~4dl room~1 gelatineblaadje~1/2 l aardbei roomijs~200 gr suiker	Voor de bavariois: Meng de duivenconfituur en de suiker met het water en laat koken. Laat het gelatineblaadje weken en wring het uit.~Voeg het daarna bij het mengsel, klop room licht op en voeg bij het mengsel~Giet het mengsel in puddingvorm en daarna opstijven in koelkast~Chocolade smelten, 3 druiven op stokje en dompel in gesmolten chocolade~Dompel aardbeji in chocolade.Laat afkoelen tot chocolade terug hard wordt, snij overige druiven en aardbeigen in stukjes (meng met citroensap en suiker)	17	4
+\.
+
+
+--
+-- TOC entry 2019 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: recipes_recipeid_seq; Type: SEQUENCE SET; Schema: dinewithme; Owner: postgres
+--
+
+SELECT pg_catalog.setval('recipes_recipeid_seq', 5, true);
+
+
+--
+-- TOC entry 2004 (class 0 OID 57426)
+-- Dependencies: 183
+-- Data for Name: userrecipes; Type: TABLE DATA; Schema: dinewithme; Owner: postgres
+--
+
+COPY userrecipes (id, userid, recipeid) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2020 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: userrecipes_id_seq; Type: SEQUENCE SET; Schema: dinewithme; Owner: postgres
+--
+
+SELECT pg_catalog.setval('userrecipes_id_seq', 1, false);
+
+
+--
+-- TOC entry 1998 (class 0 OID 57353)
+-- Dependencies: 177
+-- Data for Name: users; Type: TABLE DATA; Schema: dinewithme; Owner: postgres
+--
+
+COPY users (userid, username, firstname, lastname, password) FROM stdin;
+4	Hertz	Sean	McGee	testpassword
+5	Mel1601	Melissa	Rijkers	test
+8	userTest	TestUser	TestLastName	a94a8fe5ccb19ba61c4c0873d391e987982fbbd3
+9	a	a	a	86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+10	hello	first	last	aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+11	Insanity01	Dylan	Twee	a94a8fe5ccb19ba61c4c0873d391e987982fbbd3
+12	panda	Dylan	Meeus	600982cf9c0c41e12df616d2a9a72d675345ced7
+13	hey	hey	hey	7f550a9f4c44173a37664d938f1355f0f92a47a7
+14	pwtest	pass	pass	9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684
+15	Insanity	Dylan	Meeus	d48ca49532fca4ec78a0aba900e1e62871b9ed49
+16	jedi001	Luke	Skywalker	b5de5c86ca78de135fa765f0111236dfaac54198
+17	Moeke	Yvonne	Hombroeckx	8e99541bdefeb375169f78235740de8b292fc689
+\.
+
+
+--
+-- TOC entry 2021 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: users_userid_seq; Type: SEQUENCE SET; Schema: dinewithme; Owner: postgres
+--
+
+SELECT pg_catalog.setval('users_userid_seq', 17, true);
+
+
+--
+-- TOC entry 1880 (class 2606 OID 57449)
+-- Name: event_pkey; Type: CONSTRAINT; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT event_pkey PRIMARY KEY (eventid);
+
+
+--
+-- TOC entry 1874 (class 2606 OID 57398)
+-- Name: friends_pkey; Type: CONSTRAINT; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY friends
+    ADD CONSTRAINT friends_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1876 (class 2606 OID 57421)
+-- Name: recipes_pkey; Type: CONSTRAINT; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY recipes
+    ADD CONSTRAINT recipes_pkey PRIMARY KEY (recipeid);
+
+
+--
+-- TOC entry 1878 (class 2606 OID 57431)
+-- Name: userrecipes_pkey; Type: CONSTRAINT; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY userrecipes
+    ADD CONSTRAINT userrecipes_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1872 (class 2606 OID 57358)
+-- Name: users_pkey; Type: CONSTRAINT; Schema: dinewithme; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (userid);
+
+
+--
+-- TOC entry 1886 (class 2606 OID 57450)
+-- Name: event_hostid_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT event_hostid_fkey FOREIGN KEY (hostid) REFERENCES users(userid);
+
+
+--
+-- TOC entry 1887 (class 2606 OID 65536)
+-- Name: event_recipeid_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT event_recipeid_fkey FOREIGN KEY (recipeid) REFERENCES recipes(recipeid);
+
+
+--
+-- TOC entry 1888 (class 2606 OID 57458)
+-- Name: eventinvitees_eventid_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY eventinvitees
+    ADD CONSTRAINT eventinvitees_eventid_fkey FOREIGN KEY (eventid) REFERENCES events(eventid);
+
+
+--
+-- TOC entry 1889 (class 2606 OID 57463)
+-- Name: eventinvitees_inviteeid_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY eventinvitees
+    ADD CONSTRAINT eventinvitees_inviteeid_fkey FOREIGN KEY (inviteeid) REFERENCES users(userid);
+
+
+--
+-- TOC entry 1881 (class 2606 OID 57399)
+-- Name: friends_user1_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY friends
+    ADD CONSTRAINT friends_user1_fkey FOREIGN KEY (user1) REFERENCES users(userid);
+
+
+--
+-- TOC entry 1882 (class 2606 OID 57404)
+-- Name: friends_user2_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY friends
+    ADD CONSTRAINT friends_user2_fkey FOREIGN KEY (user2) REFERENCES users(userid);
+
+
+--
+-- TOC entry 1883 (class 2606 OID 65541)
+-- Name: recipes_userid_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY recipes
+    ADD CONSTRAINT recipes_userid_fkey FOREIGN KEY (userid) REFERENCES users(userid);
+
+
+--
+-- TOC entry 1885 (class 2606 OID 57437)
+-- Name: userrecipes_recipeid_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY userrecipes
+    ADD CONSTRAINT userrecipes_recipeid_fkey FOREIGN KEY (recipeid) REFERENCES recipes(recipeid);
+
+
+--
+-- TOC entry 1884 (class 2606 OID 57432)
+-- Name: userrecipes_userid_fkey; Type: FK CONSTRAINT; Schema: dinewithme; Owner: postgres
+--
+
+ALTER TABLE ONLY userrecipes
+    ADD CONSTRAINT userrecipes_userid_fkey FOREIGN KEY (userid) REFERENCES users(userid);
+
+
+-- Completed on 2014-12-04 16:29:35
+
+--
+-- PostgreSQL database dump complete
+--
+
