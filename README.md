@@ -3,6 +3,13 @@ DineWithMeCore
 
 The core (model) logic of the DineWithMe application.
 
+4/12/2014:
+----------
+- Added functionality to create recipes
+- Added functionality to view recipes
+- Added database functionality to add recipes
+- Created new class that which extends database (RecipeService.java)
+
 As of 3/12/2014:
 ----------------
 - Main Menu
