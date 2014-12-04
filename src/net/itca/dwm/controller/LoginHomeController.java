@@ -3,12 +3,16 @@ package net.itca.dwm.controller;
 import net.itca.dwm.controller.friends.AddFriendController;
 import net.itca.dwm.controller.friends.FriendInviteController;
 import net.itca.dwm.controller.friends.ViewFriendsController;
+import net.itca.dwm.controller.recipes.CreateRecipeController;
+import net.itca.dwm.controller.recipes.ViewRecipesController;
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.MainView;
 import net.itca.dwm.view.MenuPanel;
 import net.itca.dwm.view.friends.AddFriendPanel;
 import net.itca.dwm.view.friends.FriendInvitesPanel;
 import net.itca.dwm.view.friends.ViewFriendsPanel;
+import net.itca.dwm.view.recipes.CreateRecipePanel;
+import net.itca.dwm.view.recipes.ViewRecipesPanel;
 
 public class LoginHomeController
 {
@@ -48,12 +52,14 @@ public class LoginHomeController
 	
 	public void navigateCreateRecipe()
 	{
-		System.out.println("Add recipe");
+		CreateRecipePanel crPanel = new CreateRecipePanel(new CreateRecipeController(new DineWithMeFacade()));
+		mainView.setMainPanel(crPanel);
 	}
 	
 	public void navigateViewRecipes()
 	{
-		System.out.println("view recipes");		
+		ViewRecipesPanel vrPanel = new ViewRecipesPanel(new ViewRecipesController(new DineWithMeFacade()));	
+		mainView.setMainPanel(vrPanel);
 	}
 	
 	public void navigateCreateEvent()

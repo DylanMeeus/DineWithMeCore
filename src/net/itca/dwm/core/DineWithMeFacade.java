@@ -3,6 +3,7 @@ package net.itca.dwm.core;
 import java.util.ArrayList;
 
 import net.itca.dwm.data.FriendService;
+import net.itca.dwm.data.RecipeService;
 import net.itca.dwm.data.UserConnection;
 import net.itca.dwm.exceptions.DatabaseException;
 import net.itca.dwm.exceptions.PasswordException;
@@ -15,6 +16,7 @@ import net.itca.dwm.core.ActiveSession;
  */
 public class DineWithMeFacade
 {
+	// TODO: Create service factory
 	private ActiveSession session = ActiveSession.getActiveSession();
 	public boolean login(String username, String password)
 	{
@@ -84,4 +86,22 @@ public class DineWithMeFacade
 		return friendService.declineRequest(session.getCurrentUser().getID(),friend);		
 	}
 	
+	
+	public void createRecipe(String name, String ingredients, String instructions)
+	{
+		RecipeService recipeService = new RecipeService();
+		recipeService.createRecipe(name, ingredients, instructions, session.getCurrentUser().getID());
+	}
+	
+	public ArrayList<String> getRecipes()
+	{
+		RecipeService recipeService = new RecipeService();
+		return recipeService.getRecipesByID(session.getCurrentUser().getID());		
+	}
+	
+	public String encodeForDB(String toEncode)
+	{
+		TextEncoder encoder = new TextEncoder();
+		return encoder.encode(toEncode);
+	}
 }
