@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import net.itca.dwm.exceptions.UserNotFoundException;
+import net.itca.dwm.interfaces.DataService;
 
 /**
  * A database extension for dealing with friends. Adding friends, accepting,
@@ -15,7 +16,7 @@ import net.itca.dwm.exceptions.UserNotFoundException;
  * @author Dylan
  *
  */
-public class FriendService extends Database
+public class FriendService extends Database implements DataService
 {
 
 	public FriendService()

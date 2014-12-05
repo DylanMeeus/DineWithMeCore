@@ -32,7 +32,15 @@ public class ViewFriendsController
 	 */
 	public Vector<String> getFriends()
 	{
-		ArrayList<String> friends = facade.getFriendsByUserID();
+		ArrayList<String> friends = null;
+		try
+		{
+			friends = facade.getFriendsByUserID();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 		Vector<String> friendsVector = new Vector<String>();
 		friendsVector.addAll(friends);
 		return friendsVector;

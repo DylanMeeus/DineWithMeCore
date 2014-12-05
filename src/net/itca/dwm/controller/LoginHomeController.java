@@ -1,5 +1,6 @@
 package net.itca.dwm.controller;
 
+import net.itca.dwm.controller.events.CreateEventPanelController;
 import net.itca.dwm.controller.friends.AddFriendController;
 import net.itca.dwm.controller.friends.FriendInviteController;
 import net.itca.dwm.controller.friends.ViewFriendsController;
@@ -8,6 +9,7 @@ import net.itca.dwm.controller.recipes.ViewRecipesController;
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.MainView;
 import net.itca.dwm.view.MenuPanel;
+import net.itca.dwm.view.events.CreateEventPanel;
 import net.itca.dwm.view.friends.AddFriendPanel;
 import net.itca.dwm.view.friends.FriendInvitesPanel;
 import net.itca.dwm.view.friends.ViewFriendsPanel;
@@ -64,10 +66,11 @@ public class LoginHomeController
 	
 	public void navigateCreateEvent()
 	{
-		System.out.println("Add event");
+		CreateEventPanel cePanel = new CreateEventPanel(new CreateEventPanelController(new DineWithMeFacade()));
+		mainView.setMainPanel(cePanel);
 	}
 	
-	public void navigateViewEvents()
+	public void navigateViewMyEvents()
 	{
 		System.out.println("View events");
 	}

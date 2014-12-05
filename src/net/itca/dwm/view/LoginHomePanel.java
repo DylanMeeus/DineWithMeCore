@@ -12,7 +12,7 @@ import net.itca.dwm.controller.LoginHomeController;
 
 public class LoginHomePanel extends JPanel
 {
-	JButton logout, addFriend, viewFriends, viewEvents, createEvent,
+	JButton logout, addFriend, viewFriends, viewMyEvents, viewEventInvites, createEvent,
 			viewRecipes, createRecipes, viewFriendInvites;
 	LoginHomeController lhcController; // Not the hadron collider! ;)
 
@@ -28,7 +28,8 @@ public class LoginHomePanel extends JPanel
 		logout = new JButton("logout");
 		addFriend = new JButton("add friend");
 		viewFriends = new JButton("view friends");
-		viewEvents = new JButton("View events");
+		viewMyEvents = new JButton("View my events");
+		viewEventInvites = new JButton("View event invites");
 		createEvent = new JButton("Create event");
 		viewRecipes = new JButton("View recipes");
 		createRecipes = new JButton("Create recipes");
@@ -42,8 +43,9 @@ public class LoginHomePanel extends JPanel
 		buttonPanel.add(addFriend);
 		buttonPanel.add(viewFriends);
 		buttonPanel.add(viewFriendInvites);
-		buttonPanel.add(viewEvents);
 		buttonPanel.add(createEvent);
+		buttonPanel.add(viewMyEvents);
+		buttonPanel.add(viewEventInvites);
 		buttonPanel.add(viewRecipes);
 		buttonPanel.add(createRecipes);
 
@@ -75,11 +77,11 @@ public class LoginHomePanel extends JPanel
 				lhcController.navigateViewFriends();
 			}
 		});
-		viewEvents.addActionListener(new ActionListener()
+		viewMyEvents.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				lhcController.navigateViewEvents();
+				lhcController.navigateViewMyEvents();
 			}
 		});
 

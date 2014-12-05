@@ -4,7 +4,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class RecipeService extends Database
+import net.itca.dwm.interfaces.DataService;
+
+public class RecipeService extends Database implements DataService
 {
 
 	public RecipeService()
@@ -127,5 +129,32 @@ public class RecipeService extends Database
 		{
 			closeConnection();
 		}
+	}
+	
+	public int getRecipeID(String recipename, int currentUserID)
+	{
+		int recipeID = -1;
+		try
+		{
+			openConnection();
+			String getDetailString = "select recipeid from recipes where name='"+recipename+"' and userid="+currentUserID+";";
+			Statement getDetailStatement = connection.createStatement();
+			ResultSet results = getDetailStatement
+					.executeQuery(getDetailString);
+			while (results.next())
+			{
+				recipeID = results.getInt("recipeid");
+			}
+			
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+		return recipeID;
 	}
 }

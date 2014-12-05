@@ -22,7 +22,14 @@ public class AddFriendController
 	
 	public void addFriend(String friend)
 	{
-		facade.addFriend(friend);
+		try
+		{
+			facade.addFriend(friend);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 	
 }

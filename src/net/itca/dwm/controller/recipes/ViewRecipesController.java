@@ -35,7 +35,15 @@ public class ViewRecipesController
 	 */
 	public Vector<String> getRecipes()
 	{
-		ArrayList<String> recipes = facade.getRecipes();
+		ArrayList<String> recipes = null;
+		try
+		{
+			recipes = facade.getRecipes();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 		Vector<String> recipeVector = new Vector<String>();
 		recipeVector.addAll(recipes);
 		return recipeVector;
@@ -43,12 +51,29 @@ public class ViewRecipesController
 	
 	public String getDetails(String entry)
 	{
-		return facade.getRecipeDetails(entry);
+		String details = "";
+		try
+		{
+			details = facade.getRecipeDetails(entry);			
+		}
+		catch
+		(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return details;
 	}
 	
 	public void deleteRecipe(String entry)
 	{
-		facade.deleteRecipe(entry);
+		try
+		{
+			facade.deleteRecipe(entry);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 	
 }

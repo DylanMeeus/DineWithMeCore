@@ -26,7 +26,15 @@ public class FriendInviteController
 	
 	public Vector<String> getFriendInvites()
 	{
-		ArrayList<String> invites = facade.getFriendInvites();
+		ArrayList<String> invites = null;
+		try
+		{
+			invites = facade.getFriendInvites();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 		Vector<String> friendVector = new Vector<String>();
 		friendVector.addAll(invites);
 		return friendVector;
@@ -35,7 +43,14 @@ public class FriendInviteController
 	public void acceptFriend(String friendEntry)
 	{
 		String username = friendEntry.split(" ")[0];
+		try
+		{
 		boolean succes = facade.acceptFriend(username);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 
 	public void declineRequest(String friendEntry)

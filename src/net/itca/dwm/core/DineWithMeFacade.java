@@ -2,11 +2,13 @@ package net.itca.dwm.core;
 
 import java.util.ArrayList;
 
+import net.itca.dwm.data.EventService;
 import net.itca.dwm.data.FriendService;
 import net.itca.dwm.data.RecipeService;
 import net.itca.dwm.data.UserConnection;
 import net.itca.dwm.exceptions.DatabaseException;
 import net.itca.dwm.exceptions.PasswordException;
+import net.itca.dwm.exceptions.ServiceException;
 import net.itca.dwm.core.ActiveSession;
 
 /**
@@ -18,6 +20,13 @@ public class DineWithMeFacade
 {
 	// TODO: Create service factory
 	private ActiveSession session = ActiveSession.getActiveSession();
+	private ServiceFactory serviceFactory;
+	
+	public DineWithMeFacade()
+	{
+		serviceFactory = new ServiceFactory();
+	}
+	
 	public boolean login(String username, String password)
 	{
 		UserConnection userConnection = new UserConnection();
@@ -56,47 +65,41 @@ public class DineWithMeFacade
 		return userConnection.getUserID(user);	
 	}
 	
-	public void addFriend(String username)
+	public void addFriend(String username) throws ServiceException
 	{
-		FriendService friendService = new FriendService();
+		FriendService friendService = (FriendService) serviceFactory.getService(ServiceType.FRIENDSERVICE);
 		friendService.addFriend(session.getCurrentUser().getID(), username);
 	}
 	
-	public boolean acceptFriend(String friend)
+	public boolean acceptFriend(String friend) throws ServiceException
 	{
-		FriendService friendService = new FriendService();
-		return friendService.acceptFriend(session.getCurrentUser().getID(),friend);
+		return ((FriendService)serviceFactory.getService(ServiceType.FRIENDSERVICE)).acceptFriend(session.getCurrentUser().getID(), friend);
 	}
 	
-	public ArrayList<String> getFriendsByUserID()
+	public ArrayList<String> getFriendsByUserID() throws ServiceException
 	{
-		FriendService friendService = new FriendService();
-		return friendService.getFriends(session.getCurrentUser().getID());
+		return ((FriendService)serviceFactory.getService(ServiceType.FRIENDSERVICE)).getFriends(session.getCurrentUser().getID());
 	}
 	
-	public ArrayList<String> getFriendInvites()
+	public ArrayList<String> getFriendInvites() throws ServiceException
 	{
-		FriendService friendService = new FriendService();
-		return friendService.getFriendInvites(session.getCurrentUser().getID());
+		return ((FriendService)serviceFactory.getService(ServiceType.FRIENDSERVICE)).getFriendInvites(session.getCurrentUser().getID());
 	}
 
 	public boolean declineRequest(String friend) throws Exception
 	{
-		FriendService friendService = new FriendService();
-		return friendService.declineRequest(session.getCurrentUser().getID(),friend);		
+		return ((FriendService)serviceFactory.getService(ServiceType.FRIENDSERVICE)).declineRequest(session.getCurrentUser().getID(),friend);		
 	}
 	
 	
-	public void createRecipe(String name, String ingredients, String instructions, int people)
+	public void createRecipe(String name, String ingredients, String instructions, int people) throws ServiceException
 	{
-		RecipeService recipeService = new RecipeService();
-		recipeService.createRecipe(name, ingredients, instructions, session.getCurrentUser().getID(), people);
+		((RecipeService)serviceFactory.getService(ServiceType.RECIPESERVICE)).createRecipe(name, ingredients, instructions, session.getCurrentUser().getID(), people);
 	}
 	
-	public ArrayList<String> getRecipes()
+	public ArrayList<String> getRecipes() throws ServiceException
 	{
-		RecipeService recipeService = new RecipeService();
-		return recipeService.getRecipesByID(session.getCurrentUser().getID());		
+		return ((RecipeService)serviceFactory.getService(ServiceType.RECIPESERVICE)).getRecipesByID(session.getCurrentUser().getID());		
 	}
 	
 	public String encodeForDB(String toEncode)
@@ -105,16 +108,23 @@ public class DineWithMeFacade
 		return encoder.encode(toEncode);
 	}
 	
-	public String getRecipeDetails(String recipeName)
+	public String getRecipeDetails(String recipeName) throws ServiceException
 	{
 		TextEncoder decoder = new TextEncoder();
 		RecipeService recipeService = new RecipeService();
-		return decoder.decode(recipeService.getRecipeDetails(session.getCurrentUser().getID(), recipeName));
+		return decoder.decode(((RecipeService)serviceFactory.getService(ServiceType.RECIPESERVICE)).getRecipeDetails(session.getCurrentUser().getID(), recipeName));
 	}
 	
-	public void deleteRecipe(String recipe)
+	public void deleteRecipe(String recipe) throws ServiceException
 	{
-		RecipeService recipeService = new RecipeService();
-		recipeService.deleteRecipe(session.getCurrentUser().getID(), recipe);
+		((RecipeService)serviceFactory.getService(ServiceType.RECIPESERVICE)).deleteRecipe(session.getCurrentUser().getID(), recipe);
+	}
+	
+	// Events
+	
+	public void createEvent(String eventname, String date, String recipeName) throws ServiceException
+	{
+		int recipeID = ((RecipeService)serviceFactory.getService(ServiceType.RECIPESERVICE)).getRecipeID(recipeName, session.getCurrentUser().getID());
+		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).createEvent(eventname, date, session.getCurrentUser().getID(), recipeID);
 	}
 }

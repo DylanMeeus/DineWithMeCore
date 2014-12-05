@@ -64,14 +64,10 @@ public class ViewRecipesPanel extends JPanel
 
 			public void ancestorMoved(AncestorEvent arg0)
 			{
-				// TODO Auto-generated method stub
-
 			}
 
 			public void ancestorRemoved(AncestorEvent arg0)
 			{
-				// TODO Auto-generated method stub
-
 			}
 
 		});

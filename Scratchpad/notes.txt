@@ -1,0 +1,4 @@
+Some notes whilst developping the program.
+
+-- We'll need a view to alter user data (password)
+-- Gamification

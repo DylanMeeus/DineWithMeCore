@@ -24,6 +24,13 @@ public class CreateRecipeController
 	public void createRecipe(String name, String ingredients, String instructions, int people)
 	{
 		//System.out.println("test: " + facade.encodeForDB(ingredients));
+		try
+		{
 		facade.createRecipe(name, facade.encodeForDB(ingredients), facade.encodeForDB(instructions), people);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 }
