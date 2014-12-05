@@ -5,14 +5,27 @@ import net.itca.dwm.view.CreateUserPanel;
 import net.itca.dwm.view.LoginPanel;
 import net.itca.dwm.view.MainView;
 
+/**
+ * Controller for the main menu
+ * @author Dylan
+ *
+ */
 public class MenuController
 {
 	private DineWithMeFacade dineWithMeFacade;
+	
+	/**
+	 * 
+	 * @param dwm
+	 */
 	public MenuController(DineWithMeFacade dwm)
 	{
 		dineWithMeFacade = dwm;
 	}
 	
+	/**
+	 * Navigates to the login menu
+	 */
 	public void navigateLogin()
 	{
 		LoginPanel login = new LoginPanel(new LoginController(dineWithMeFacade));
@@ -20,6 +33,9 @@ public class MenuController
 		mv.setMainPanel(login);
 	}
 	
+	/**
+	 * Navigates to the create user menu
+	 */
 	public void navigateCreateUser()
 	{
 		CreateUserPanel createuser = new CreateUserPanel(new CreateUserController(dineWithMeFacade));

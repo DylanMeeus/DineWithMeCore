@@ -120,5 +120,14 @@ public class LoginHomePanel extends JPanel
 			}
 
 		});
+		viewMyEvents.addActionListener(new ActionListener()
+		{
+
+			public void actionPerformed(ActionEvent arg0)
+			{
+				lhcController.navigateViewMyEvents();
+			}
+			
+		});
 	}
 }

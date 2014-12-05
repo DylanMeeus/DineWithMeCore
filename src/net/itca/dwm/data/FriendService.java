@@ -10,8 +10,7 @@ import net.itca.dwm.exceptions.UserNotFoundException;
 import net.itca.dwm.interfaces.DataService;
 
 /**
- * A database extension for dealing with friends. Adding friends, accepting,
- * removing..
+ * A database extension for access to the internal friend system (CRUD operations).
  * 
  * @author Dylan
  *
@@ -24,6 +23,12 @@ public class FriendService extends Database implements DataService
 		super();
 	}
 
+	/**
+	 * Sends a friend request to the specified friend. Returns false in case something went wrong.
+	 * @param currentUserID
+	 * @param friend
+	 * @return
+	 */
 	public boolean addFriend(int currentUserID, String friend)
 	{
 		boolean succes = false;
@@ -59,6 +64,13 @@ public class FriendService extends Database implements DataService
 		return succes;
 	}
 
+	
+	/**
+	 * Returns the database ID of a friend based on the username.
+	 * @param friend
+	 * @return
+	 * @throws Exception
+	 */
 	private int getFriendID(String friend) throws Exception
 	{
 		String selectIDString = "select userid from users where username='"
@@ -73,6 +85,12 @@ public class FriendService extends Database implements DataService
 		return -1;
 	}
 
+	/**
+	 * Checks whether or not a certain username is present in the database.
+	 * @param friendname
+	 * @return
+	 * @throws Exception
+	 */
 	private boolean friendExists(String friendname) throws Exception
 	{
 		boolean exists = false;
@@ -93,6 +111,11 @@ public class FriendService extends Database implements DataService
 		return exists;
 	}
 
+	/**
+	 * Gets the friend invites based on the current users ID in the database
+	 * @param userID
+	 * @return
+	 */
 	public ArrayList<String> getFriendInvites(int userID)
 	{
 		ArrayList<String> invites = new ArrayList<String>();
@@ -130,6 +153,12 @@ public class FriendService extends Database implements DataService
 		return invites;
 	}
 
+	/**
+	 * Accepts a friend request.
+	 * @param currentUserID
+	 * @param friendname
+	 * @return
+	 */
 	public boolean acceptFriend(int currentUserID, String friendname)
 	{
 		boolean accepted = false;
@@ -157,6 +186,11 @@ public class FriendService extends Database implements DataService
 		return accepted;
 	}
 
+	/**
+	 * Gets the list of friends (only people whom have accepted your friend requests, or of whom you have accepted friend requests.
+	 * @param currentUserID
+	 * @return
+	 */
 	public ArrayList<String> getFriends(int currentUserID)
 	{
 		ArrayList<String> friends = new ArrayList<String>();
@@ -197,6 +231,12 @@ public class FriendService extends Database implements DataService
 		return friends;
 	}
 
+	/**
+	 * Gets username, first name and last name based on a given user ID.
+	 * @param userid
+	 * @return
+	 * @throws SQLException
+	 */
 	private String getUserInfoByID(int userid) throws SQLException
 	{
 		String inviteString = "select username, firstname, lastname from users where userid="
@@ -214,6 +254,13 @@ public class FriendService extends Database implements DataService
 		return null;
 	}
 	
+	/**
+	 * Declines a user request by removing it from the database.
+	 * @param currentUserID
+	 * @param friend
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean declineRequest(int currentUserID, String friend) throws Exception
 	{
 		

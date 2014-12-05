@@ -2,6 +2,11 @@ package net.itca.dwm.core;
 
 import java.security.MessageDigest;
 
+/**
+ * Class to support encryption for sensitive data
+ * @author Dylan
+ *
+ */
 public class Encrypter
 {
 	public Encrypter()

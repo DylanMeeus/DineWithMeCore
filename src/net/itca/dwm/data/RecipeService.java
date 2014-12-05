@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 import net.itca.dwm.interfaces.DataService;
 
+/**
+ * Database extension for dealing with recipes (CRUD operations)
+ * @author Dylan
+ *
+ */
 public class RecipeService extends Database implements DataService
 {
 
@@ -14,6 +19,15 @@ public class RecipeService extends Database implements DataService
 		super();
 	}
 
+	/**
+	 * Adds a recipe to the database based on the given parameters.
+	 * @param name
+	 * @param ingredients
+	 * @param instructions
+	 * @param currentUserID
+	 * @param people
+	 * @return
+	 */
 	public boolean createRecipe(String name, String ingredients,
 			String instructions, int currentUserID, int people)
 	{
@@ -51,7 +65,13 @@ public class RecipeService extends Database implements DataService
 
 		return succes;
 	}
-
+	
+	
+	/**
+	 * Gets all recipes based on a user ID.
+	 * @param userID
+	 * @return
+	 */
 	public ArrayList<String> getRecipesByID(int userID)
 	{
 		ArrayList<String> recipes = new ArrayList<String>();
@@ -77,6 +97,12 @@ public class RecipeService extends Database implements DataService
 		return recipes;
 	}
 
+	/**
+	 * Gets the recipe name, amount of people, ingredients and instructions from the database based on a given recipe name and user ID. Uses the magic value -1 when the people field was not entered.
+	 * @param currentUserID
+	 * @param recipeName
+	 * @return
+	 */
 	public String getRecipeDetails(int currentUserID, String recipeName)
 	{
 		
@@ -112,6 +138,11 @@ public class RecipeService extends Database implements DataService
 		return details;
 	}
 	
+	/**
+	 * Deletes a recipe from the database based on a given recipe name and user ID.
+	 * @param currentUserID
+	 * @param recipeName
+	 */
 	public void deleteRecipe(int currentUserID, String recipeName)
 	{
 		try
@@ -131,6 +162,13 @@ public class RecipeService extends Database implements DataService
 		}
 	}
 	
+	
+	/**
+	 * Gets the recipe ID based on a given recipe name and user ID.
+	 * @param recipename
+	 * @param currentUserID
+	 * @return
+	 */
 	public int getRecipeID(String recipename, int currentUserID)
 	{
 		int recipeID = -1;

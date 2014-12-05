@@ -1,5 +1,10 @@
 package net.itca.dwm.core;
 
+/**
+ * Class which represents a user.
+ * @author Dylan
+ *
+ */
 public class User
 {
 	private int userID;
@@ -11,17 +16,22 @@ public class User
 		userID = ID;
 	}
 	
+	/**
+	 * Returns the users username as it is found in the database
+	 * @return
+	 */
 	public String getUsername()
 	{
 		return username;
 	}
 	
+	/**
+	 * Returns the users ID as it is in the database
+	 * @return
+	 */
 	public int getID()
 	{
 		return userID;
 	}
-	public String getFriends()
-	{
-		return "";
-	}
+	
 }

@@ -3,6 +3,7 @@ package net.itca.dwm.core;
 import net.itca.dwm.data.EventService;
 import net.itca.dwm.data.FriendService;
 import net.itca.dwm.data.RecipeService;
+import net.itca.dwm.data.UserService;
 import net.itca.dwm.exceptions.ServiceException;
 import net.itca.dwm.interfaces.DataService;
 
@@ -16,10 +17,10 @@ import net.itca.dwm.interfaces.DataService;
 public class ServiceFactory
 {
 	/**
-	 * 
-	 * @param serviceType
+	 * Returns an instance of the requested service based on the ServiceType enum.
+	 * @param serviceType (ENUM)
 	 * @return
-	 * @throws Exception
+	 * @throws ServiceException
 	 */
 	public DataService getService(ServiceType serviceType) throws ServiceException
 	{
@@ -36,6 +37,10 @@ public class ServiceFactory
 		else if(serviceType == ServiceType.RECIPESERVICE)
 		{
 			return new RecipeService();
+		}
+		else if(serviceType == ServiceType.USERSERVICE)
+		{
+			return new UserService();
 		}
 		throw new ServiceException("Service not found");
 	}

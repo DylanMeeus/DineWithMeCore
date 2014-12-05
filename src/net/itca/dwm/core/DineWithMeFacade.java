@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import net.itca.dwm.data.EventService;
 import net.itca.dwm.data.FriendService;
 import net.itca.dwm.data.RecipeService;
-import net.itca.dwm.data.UserConnection;
+import net.itca.dwm.data.UserService;
 import net.itca.dwm.exceptions.DatabaseException;
 import net.itca.dwm.exceptions.PasswordException;
 import net.itca.dwm.exceptions.ServiceException;
@@ -18,7 +18,6 @@ import net.itca.dwm.core.ActiveSession;
  */
 public class DineWithMeFacade
 {
-	// TODO: Create service factory
 	private ActiveSession session = ActiveSession.getActiveSession();
 	private ServiceFactory serviceFactory;
 	
@@ -27,10 +26,9 @@ public class DineWithMeFacade
 		serviceFactory = new ServiceFactory();
 	}
 	
-	public boolean login(String username, String password)
+	public boolean login(String username, String password) throws ServiceException
 	{
-		UserConnection userConnection = new UserConnection();
-		return userConnection.login(username, password);
+		return ((UserService)serviceFactory.getService(ServiceType.USERSERVICE)).login(username, password);
 	}
 
 	public String encrypt(String encrypt)
@@ -43,10 +41,9 @@ public class DineWithMeFacade
 		return encrypter.encrypt(encrypt);
 	}
 
-	public void createUser(String username, String password, String firstname, String lastname) throws DatabaseException, PasswordException
+	public void createUser(String username, String password, String firstname, String lastname) throws DatabaseException, PasswordException, ServiceException
 	{
-		UserConnection userConnection = new UserConnection();
-		userConnection.createUser(username, firstname, lastname, password);
+		((UserService)serviceFactory.getService(ServiceType.USERSERVICE)).createUser(username, firstname, lastname, password);
 	}
 	
 	public void setCurrentUser(User current)
@@ -59,10 +56,9 @@ public class DineWithMeFacade
 		return session.getCurrentUser();
 	}
 	
-	public int getUserID(String user)
+	public int getUserID(String user) throws ServiceException
 	{
-		UserConnection userConnection = new UserConnection();
-		return userConnection.getUserID(user);	
+		return ((UserService)serviceFactory.getService(ServiceType.USERSERVICE)).getUserID(user);	
 	}
 	
 	public void addFriend(String username) throws ServiceException
@@ -126,5 +122,20 @@ public class DineWithMeFacade
 	{
 		int recipeID = ((RecipeService)serviceFactory.getService(ServiceType.RECIPESERVICE)).getRecipeID(recipeName, session.getCurrentUser().getID());
 		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).createEvent(eventname, date, session.getCurrentUser().getID(), recipeID);
+	}
+	
+	public ArrayList<String> getEvents() throws ServiceException
+	{
+		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getEvents(session.getCurrentUser().getID());
+	}
+	
+	public String getEventDetails()
+	{
+		return "Details";
+	}
+	
+	public void InviteFriend(String friendname, int eventID)
+	{
+		
 	}
 }

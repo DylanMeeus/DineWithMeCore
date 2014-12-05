@@ -17,6 +17,10 @@ public class ActiveSession
 		
 	}
 	
+	/**
+	 * Returns an existing active session, or returns a new one in case there was none.
+	 * @return
+	 */
 	public static ActiveSession getActiveSession()
 	{
 		if(session==null)
@@ -26,11 +30,19 @@ public class ActiveSession
 		return session;
 	}
 	
+	/**
+	 * Sets the current user.
+	 * @param current
+	 */
 	public void setCurrentUser(User current)
 	{
 		currentUser = current;
 	}
 	
+	/**
+	 * Returns the current user
+	 * @return
+	 */
 	public User getCurrentUser()
 	{
 		return currentUser;

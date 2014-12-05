@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
-import net.itca.dwm.controller.events.CreateEventPanelController;
+import net.itca.dwm.controller.events.CreateEventController;
 
 public class CreateEventPanel extends JPanel
 {
@@ -24,9 +24,9 @@ public class CreateEventPanel extends JPanel
 	private JLabel nameLabel, dateLabel, recipeNameLabel;
 	private JTextField nameField, dateField;
 	private JComboBox recipeBox;
-	private CreateEventPanelController controller;
+	private CreateEventController controller;
 
-	public CreateEventPanel(CreateEventPanelController cepController)
+	public CreateEventPanel(CreateEventController cepController)
 	{
 		controller = cepController;
 		setup();

@@ -20,6 +20,9 @@ public class Launcher
 		gui();
 	}
 
+	/**
+	 * Start the GUI for the program.
+	 */
 	public static void gui()
 	{
 		MainView mv = MainView.getMainView();
