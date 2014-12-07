@@ -3,8 +3,20 @@ DineWithMeCore
 
 The core (model) logic of the DineWithMe application.
 
-4/12/2014:
-----------
+
+As of 7/12/2014:
+----------------
+- Refactored controllers to follow naming convention
+- Refactored controllers to deal with exceptions thrown by the facade
+- Added functionality to create events
+- Added functionality to view user owned events
+- Added a factory class now responsible for returning the correct database-handling class
+- Facade now calls factory method, which can return a new ServiceTypeException if the service is not found
+- Removed System.out.println() methods used for debugging
+- Added UML of the complete DineWithMeCore application (MVC)
+
+As of 4/12/2014:
+----------------
 - Added functionality to create recipes
 - Added functionality to view recipes
 - Added database functionality to add recipes
