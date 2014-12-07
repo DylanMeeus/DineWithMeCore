@@ -7,7 +7,6 @@ package net.itca.dwm.core;
  * @author Dylan
  *
  */
-
 public class ActiveSession
 {
 	private static ActiveSession session;

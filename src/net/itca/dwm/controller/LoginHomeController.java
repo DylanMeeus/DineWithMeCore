@@ -1,6 +1,7 @@
 package net.itca.dwm.controller;
 
 import net.itca.dwm.controller.events.CreateEventController;
+import net.itca.dwm.controller.events.ViewEventInvitesController;
 import net.itca.dwm.controller.events.ViewMyEventsController;
 import net.itca.dwm.controller.friends.AddFriendController;
 import net.itca.dwm.controller.friends.FriendInviteController;
@@ -11,6 +12,7 @@ import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.MainView;
 import net.itca.dwm.view.MenuPanel;
 import net.itca.dwm.view.events.CreateEventPanel;
+import net.itca.dwm.view.events.ViewEventInvitesPanel;
 import net.itca.dwm.view.events.ViewMyEventsPanel;
 import net.itca.dwm.view.friends.AddFriendPanel;
 import net.itca.dwm.view.friends.FriendInvitesPanel;
@@ -26,6 +28,7 @@ import net.itca.dwm.view.recipes.ViewRecipesPanel;
 public class LoginHomeController
 {
 	private MainView mainView;
+	private DineWithMeFacade facade;
 	public LoginHomeController() // No facade needed for this one
 	{
 		mainView = MainView.getMainView();
@@ -104,5 +107,11 @@ public class LoginHomeController
 	{
 		ViewMyEventsPanel vmePanel = new ViewMyEventsPanel(new ViewMyEventsController(new DineWithMeFacade()));
 		mainView.setMainPanel(vmePanel);
+	}
+	
+	public void navigateViewEventInvites()
+	{
+		ViewEventInvitesPanel veiPanel = new ViewEventInvitesPanel(new ViewEventInvitesController(new DineWithMeFacade()));
+		mainView.setMainPanel(veiPanel);
 	}
 }
