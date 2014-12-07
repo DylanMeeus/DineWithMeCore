@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.7" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="net.itca.dwm.view.MenuPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/MenuPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="158" x="554" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="net.itca.dwm.controller.friends.FriendInviteController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/friends/FriendInviteController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3629" y="1617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="net.itca.dwm.controller.friends.AddFriendController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/friends/AddFriendController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1960" y="1599"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="net.itca.dwm.view.LoginPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/LoginPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="159" x="792" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="net.itca.dwm.data.RecipeService" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/data/RecipeService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="257" x="4545" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="net.itca.dwm.view.events.InviteFriendsPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/events/InviteFriendsPanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="128" x="363" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="net.itca.dwm.controller.DataPanelController" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/DataPanelController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="138" x="2462" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="net.itca.dwm.core.TextEncoder" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/TextEncoder.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="129" x="638" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="net.itca.dwm.launcher.Launcher" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/launcher/Launcher.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="113" x="915" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="net.itca.dwm.exceptions.ServiceException" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/exceptions/ServiceException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="146" x="1177" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="net.itca.dwm.exceptions.UserNotFoundException" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/exceptions/UserNotFoundException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="178" x="1472" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="net.itca.dwm.view.events.CreateEventPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/events/CreateEventPanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="224" x="1304" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="net.itca.dwm.core.DineWithMeFacade" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/DineWithMeFacade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2641" y="1991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="14" language="java" name="net.itca.dwm.core.ServiceType" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/ServiceType.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="170" x="1800" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="15" language="java" name="net.itca.dwm.data.DatabaseTest" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/data/DatabaseTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="139" x="2121" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="16" language="java" name="net.itca.dwm.interfaces.Datasource" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/interfaces/Datasource.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="219" x="2412" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="17" language="java" name="net.itca.dwm.view.LoginHomePanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/LoginHomePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="212" x="4320" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="net.itca.dwm.view.friends.AddFriendPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/friends/AddFriendPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="206" x="1837" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="net.itca.dwm.controller.CreateEventPanelController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/CreateEventPanelController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="397" y="1590"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="net.itca.dwm.view.friends.ViewFriendsPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/friends/ViewFriendsPanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="230" x="1030" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="net.itca.dwm.controller.events.CreateEventController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/events/CreateEventController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1431" y="1608"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="net.itca.dwm.controller.MenuController" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/MenuController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="665" y="1608"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="net.itca.dwm.view.recipes.RecipeDetailsDialog" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/recipes/RecipeDetailsDialog.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="156" x="2784" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="net.itca.dwm.core.User" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2713" y="2513"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="net.itca.dwm.data.UserConnection" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/data/UserConnection.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="250" x="2172" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="net.itca.dwm.controller.events.InviteFriendsController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/events/InviteFriendsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2227" y="1599"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="net.itca.dwm.core.Encrypter" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/Encrypter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="199" x="3094" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="net.itca.dwm.controller.LoginHomeController" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/LoginHomeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="185" x="4320" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="net.itca.dwm.core.ServiceFactory" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/ServiceFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2505" y="2301"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="net.itca.dwm.controller.users.CreateUserController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/users/CreateUserController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4176" y="1599"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="net.itca.dwm.view.events.ViewMyEventsPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/events/ViewMyEventsPanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="252" x="2916" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="net.itca.dwm.controller.recipes.ViewRecipesController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/recipes/ViewRecipesController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2776" y="1617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="net.itca.dwm.data.FriendService" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/data/FriendService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="209" x="4842" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="net.itca.dwm.view.MainView" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/MainView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4407" y="1635"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="net.itca.dwm.controller.users.ViewFriendsController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/users/ViewFriendsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2501" y="1599"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="net.itca.dwm.controller.recipes.CreateRecipeController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/recipes/CreateRecipeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3901" y="1599"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="net.itca.dwm.core.Event" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/Event.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="87" x="3448" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="net.itca.dwm.exceptions.DatabaseException" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/exceptions/DatabaseException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="155" x="3691" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="net.itca.dwm.view.recipes.ViewRecipesPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/recipes/ViewRecipesPanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="236" x="2640" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="net.itca.dwm.controller.friends.ViewFriendsController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/friends/ViewFriendsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1159" y="1599"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="net.itca.dwm.controller.events.ViewEventInvitesController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/events/ViewEventInvitesController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3348" y="1590"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="net.itca.dwm.core.ActiveSession" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/core/ActiveSession.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2745" y="2319"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="net.itca.dwm.view.events.ViewEventInvitesPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/events/ViewEventInvitesPanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="274" x="3208" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="net.itca.dwm.controller.LoginController" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/LoginController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="903" y="1608"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="45" language="java" name="net.itca.dwm.interfaces.DataService" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/interfaces/DataService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="63" width="108" x="4953" y="870"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="46" language="java" name="net.itca.dwm.data.Database" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/data/Database.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="139" x="4842" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="net.itca.dwm.view.recipes.CreateRecipePanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/recipes/CreateRecipePanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="279" width="236" x="3784" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="net.itca.dwm.view.users.CreateUserPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/users/CreateUserPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="216" x="4060" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="net.itca.dwm.controller.events.ViewMyEventsController" 
+    project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/controller/events/ViewMyEventsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3057" y="1608"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="net.itca.dwm.view.friends.FriendInvitesPanel" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/view/friends/FriendInvitesPanel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="222" x="3522" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="net.itca.dwm.data.EventService" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/data/EventService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="202" x="5091" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="net.itca.dwm.data.UserService" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/data/UserService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="250" x="5333" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="53" language="java" name="net.itca.dwm.exceptions.PasswordException" project="DineWithMeCoreDesktop" 
+    file="/DineWithMeCoreDesktop/src/net/itca/dwm/exceptions/PasswordException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="159" x="4003" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="54">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="55" name="controller"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="58" name="facade"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="61" name="facade"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="64" name="facade"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="67" name="lhcController"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="70" name="mainView"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="72">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="73">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="74" name="controller"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="77">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="78" name="facade"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="80">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <association id="81">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="82" name="dineWithMeFacade"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="85" name="currentUser"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="88" name="facade"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="90">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <association id="91">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="92" name="controller"/>      
+      <multiplicity id="93" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="94">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="95">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="96" name="session"/>      
+      <multiplicity id="97" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="98">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="99">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="100" name="mainView"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="103" name="controller"/>      
+      <multiplicity id="104" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="105">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="106" name="serviceFactory"/>      
+      <multiplicity id="107" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="108">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="109" name="facade"/>      
+      <multiplicity id="110" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="111">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <association id="112">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="113" name="controller"/>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="115">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="116" name="facade"/>      
+      <multiplicity id="117" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="119" name="controller"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="122" name="facade"/>      
+      <multiplicity id="123" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="124">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <association id="125">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="126" name="facade"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="128">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <association id="129">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="130" name="controller"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="132">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="133">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="134" name="facade"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="136">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="137">    
+    <bendpoint x="4511" y="870"/>    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="138" name="facade"/>      
+      <multiplicity id="139" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="140">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <generalization id="141">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="142">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <association id="143">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="144" name="controller"/>      
+      <multiplicity id="145" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="147" name="facade"/>      
+      <multiplicity id="148" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="150" name="controller"/>      
+      <multiplicity id="151" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="152">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="153">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="154" name="facade"/>      
+      <multiplicity id="155" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="156">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="157">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="158" name="facade"/>      
+      <multiplicity id="159" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="160">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <association id="161">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="162" name="controller"/>      
+      <multiplicity id="163" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="164">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="165">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <generalization id="166">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="167">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="168" name="session"/>      
+      <multiplicity id="169" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="170">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="171" name="controller"/>      
+      <multiplicity id="172" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="173">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="174" name="facade"/>      
+      <multiplicity id="175" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
