@@ -2,7 +2,6 @@ package net.itca.dwm.interfaces;
 
 import net.itca.dwm.exceptions.DatabaseException;
 import net.itca.dwm.exceptions.PasswordException;
-import net.itca.dwm.exceptions.UserNotFoundException;
 
 
 /**

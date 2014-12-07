@@ -2,14 +2,8 @@ package net.itca.dwm.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import net.itca.dwm.exceptions.DatabaseException;
-import net.itca.dwm.exceptions.PasswordException;
-import net.itca.dwm.exceptions.UserNotFoundException;
-import net.itca.dwm.interfaces.Datasource;
 
 /**
  * 

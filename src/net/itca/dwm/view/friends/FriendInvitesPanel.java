@@ -12,7 +12,6 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
 import net.itca.dwm.controller.friends.FriendInviteController;
-import net.itca.dwm.core.DineWithMeFacade;
 
 public class FriendInvitesPanel extends JPanel
 {

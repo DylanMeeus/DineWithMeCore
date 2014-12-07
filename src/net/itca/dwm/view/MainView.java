@@ -1,15 +1,11 @@
 package net.itca.dwm.view;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-import net.itca.dwm.controller.LoginController;
 import net.itca.dwm.core.DineWithMeFacade;
 
 /**

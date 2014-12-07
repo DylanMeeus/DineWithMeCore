@@ -3,7 +3,6 @@ package net.itca.dwm.view.recipes;
 import java.awt.BorderLayout;
 
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 public class RecipeDetailsDialog extends JDialog

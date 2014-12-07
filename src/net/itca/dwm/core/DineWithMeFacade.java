@@ -9,7 +9,6 @@ import net.itca.dwm.data.UserService;
 import net.itca.dwm.exceptions.DatabaseException;
 import net.itca.dwm.exceptions.PasswordException;
 import net.itca.dwm.exceptions.ServiceException;
-import net.itca.dwm.core.ActiveSession;
 
 /**
  * 

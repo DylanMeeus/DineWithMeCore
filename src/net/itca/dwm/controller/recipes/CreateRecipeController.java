@@ -1,10 +1,7 @@
 package net.itca.dwm.controller.recipes;
 
 import net.itca.dwm.controller.DataPanelController;
-import net.itca.dwm.controller.LoginHomeController;
 import net.itca.dwm.core.DineWithMeFacade;
-import net.itca.dwm.view.LoginHomePanel;
-import net.itca.dwm.view.MainView;
 
 public class CreateRecipeController extends DataPanelController
 {

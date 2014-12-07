@@ -1,8 +1,6 @@
 package net.itca.dwm.data;
 
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import net.itca.dwm.exceptions.DatabaseException;
