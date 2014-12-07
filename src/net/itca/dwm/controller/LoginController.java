@@ -32,7 +32,6 @@ public class LoginController
 	 */
 	public boolean login(String username, String password)
 	{
-		System.out.println("The encrypted pw is: " + password);
 		String pwEncrypted = facade.encrypt(password);
 		boolean succes = false;
 		try

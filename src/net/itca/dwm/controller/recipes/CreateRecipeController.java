@@ -1,11 +1,12 @@
 package net.itca.dwm.controller.recipes;
 
+import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.controller.LoginHomeController;
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.LoginHomePanel;
 import net.itca.dwm.view.MainView;
 
-public class CreateRecipeController
+public class CreateRecipeController extends DataPanelController
 {
 
 	private DineWithMeFacade facade;
@@ -14,12 +15,6 @@ public class CreateRecipeController
 		facade = dwmFacade;
 	}
 	
-	public void navigateMenu()
-	{
-		LoginHomePanel loginHome = new LoginHomePanel(new LoginHomeController());
-		MainView mainView = MainView.getMainView();
-		mainView.setMainPanel(loginHome);
-	}
 	
 	public void createRecipe(String name, String ingredients, String instructions, int people)
 	{

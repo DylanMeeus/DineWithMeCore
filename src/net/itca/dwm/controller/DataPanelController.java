@@ -11,6 +11,9 @@ import net.itca.dwm.view.MainView;
 public class DataPanelController
 {
 
+	/**
+	 * Opens the main menu for a logged-in user.
+	 */
 	public void navigateMenu()
 	{
 		LoginHomePanel loginHome = new LoginHomePanel(new LoginHomeController());

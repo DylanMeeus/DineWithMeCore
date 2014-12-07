@@ -3,12 +3,13 @@ package net.itca.dwm.controller.events;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.controller.LoginHomeController;
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.LoginHomePanel;
 import net.itca.dwm.view.MainView;
 
-public class ViewMyEventsController
+public class ViewMyEventsController extends DataPanelController
 {
 
 	private DineWithMeFacade facade;
@@ -18,12 +19,6 @@ public class ViewMyEventsController
 		facade = dwmFacade;
 	}
 
-	public void navigateMenu()
-	{
-		LoginHomePanel loginHome = new LoginHomePanel(new LoginHomeController());
-		MainView mainView = MainView.getMainView();
-		mainView.setMainPanel(loginHome);
-	}
 
 	public Vector<String> getEvents()
 	{

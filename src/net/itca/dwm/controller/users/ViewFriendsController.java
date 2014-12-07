@@ -1,6 +1,5 @@
-package net.itca.dwm.controller.friends;
+package net.itca.dwm.controller.users;
 
-import java.util.ArrayList;
 import java.util.Vector;
 
 import net.itca.dwm.controller.DataPanelController;
@@ -20,25 +19,16 @@ public class ViewFriendsController extends DataPanelController
 	}
 	
 
-	
 	/**
 	 * Gets the friends belonging to the logged in user
 	 * @return
 	 */
-	public Vector<String> getFriends()
+	public Vector getFriends()
 	{
-		ArrayList<String> friends = null;
-		try
-		{
-			friends = facade.getFriendsByUserID();
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Vector<String> friendsVector = new Vector<String>();
-		friendsVector.addAll(friends);
-		return friendsVector;
+		
+		
+		
+		return null;
 	}
 
 }

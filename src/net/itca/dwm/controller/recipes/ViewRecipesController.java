@@ -3,6 +3,7 @@ package net.itca.dwm.controller.recipes;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.controller.LoginHomeController;
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.LoginHomePanel;
@@ -13,7 +14,7 @@ import net.itca.dwm.view.MainView;
  * @author Dylan
  *
  */
-public class ViewRecipesController
+public class ViewRecipesController extends DataPanelController
 {
 
 	private DineWithMeFacade facade;
@@ -21,14 +22,7 @@ public class ViewRecipesController
 	{
 		facade = dwmfacade;
 	}
-	
-	public void navigateMenu()
-	{
-		LoginHomePanel loginHome = new LoginHomePanel(new LoginHomeController());
-		MainView mainView = MainView.getMainView();
-		mainView.setMainPanel(loginHome);
-	}
-	
+
 	/**
 	 * Returns the recipes based on the current logged in user.
 	 * @return

@@ -73,7 +73,7 @@ public class ViewFriendsPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				controller.navigateToMenu();
+				controller.navigateMenu();
 			}	
 		});
 	}

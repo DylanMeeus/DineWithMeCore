@@ -1,9 +1,10 @@
 package net.itca.dwm.controller;
 
+import net.itca.dwm.controller.users.CreateUserController;
 import net.itca.dwm.core.DineWithMeFacade;
-import net.itca.dwm.view.CreateUserPanel;
 import net.itca.dwm.view.LoginPanel;
 import net.itca.dwm.view.MainView;
+import net.itca.dwm.view.users.CreateUserPanel;
 
 /**
  * Controller for the main menu

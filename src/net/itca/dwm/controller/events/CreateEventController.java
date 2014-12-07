@@ -3,6 +3,7 @@ package net.itca.dwm.controller.events;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.controller.LoginHomeController;
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.view.LoginHomePanel;
@@ -13,7 +14,7 @@ import net.itca.dwm.view.MainView;
  * @author Dylan
  *
  */
-public class CreateEventController
+public class CreateEventController extends DataPanelController
 {
 	DineWithMeFacade facade;
 
@@ -46,12 +47,6 @@ public class CreateEventController
 		return recipeVector;
 	}
 
-	public void navigateMenu()
-	{
-		LoginHomePanel loginHome = new LoginHomePanel(new LoginHomeController());
-		MainView mainView = MainView.getMainView();
-		mainView.setMainPanel(loginHome);
-	}
 
 	/**
 	 * 

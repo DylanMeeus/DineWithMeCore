@@ -1,4 +1,4 @@
-package net.itca.dwm.controller.friends;
+package net.itca.dwm.controller.users;
 
 import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.controller.LoginHomeController;
@@ -14,17 +14,19 @@ public class AddFriendController extends DataPanelController
 		facade = dwmFacade;
 	}
 	
-
-	
 	public void addFriend(String friend)
 	{
 		try
 		{
-			facade.addFriend(friend);
+		facade.addFriend(friend);
 		}
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
+		}
+		finally
+		{
+			
 		}
 	}
 	
