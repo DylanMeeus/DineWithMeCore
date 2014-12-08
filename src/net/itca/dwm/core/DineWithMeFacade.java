@@ -133,8 +133,8 @@ public class DineWithMeFacade
 		return "Details";
 	}
 	
-	public void InviteFriend(String friendname, int eventID)
+	public void InviteFriend(String eventname, String friendname) throws ServiceException
 	{
-		
+		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).inviteUserToEvent(friendname, eventname, session.getCurrentUser().getID());
 	}
 }

@@ -9,10 +9,13 @@ import java.security.MessageDigest;
  */
 public class Encrypter
 {
+	/**
+	 */
 	public Encrypter()
 	{
 
 	}
+	
 
 	/**
 	 * SHA-1 encryption.

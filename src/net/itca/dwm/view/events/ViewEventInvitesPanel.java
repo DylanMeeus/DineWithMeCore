@@ -17,7 +17,7 @@ public class ViewEventInvitesPanel extends JPanel
 {
 
 	private ViewEventInvitesController controller;
-	private JList invites;
+	private JList<String> invites;
 	private JButton accept, decline, menu;
 
 	public ViewEventInvitesPanel(ViewEventInvitesController veicontroller)
@@ -28,7 +28,7 @@ public class ViewEventInvitesPanel extends JPanel
 
 	private void setup()
 	{
-		invites = new JList();
+		invites = new JList<String>();
 		menu = new JButton("Menu");
 		accept = new JButton("Accept");
 		decline = new JButton("Decline");
@@ -52,7 +52,6 @@ public class ViewEventInvitesPanel extends JPanel
 	{
 		menu.addActionListener(new ActionListener()
 		{
-			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				controller.navigateMenu();
@@ -61,47 +60,48 @@ public class ViewEventInvitesPanel extends JPanel
 
 		accept.addActionListener(new ActionListener()
 		{
-			@Override
+
 			public void actionPerformed(ActionEvent e)
 			{
 				// TODO Auto-generated method stub
-
+				
 			}
+		
 		});
 
 		decline.addActionListener(new ActionListener()
 		{
-			@Override
+
 			public void actionPerformed(ActionEvent e)
 			{
 				// TODO Auto-generated method stub
-
+				
 			}
+		
 		});
 
 		this.addAncestorListener(new AncestorListener()
 		{
 
-			@Override
 			public void ancestorAdded(AncestorEvent arg0)
 			{
 				// TODO Auto-generated method stub
 				
 			}
 
-			@Override
 			public void ancestorMoved(AncestorEvent arg0)
 			{
 				// TODO Auto-generated method stub
 				
 			}
 
-			@Override
 			public void ancestorRemoved(AncestorEvent arg0)
 			{
 				// TODO Auto-generated method stub
 				
 			}
+
+			
 
 		});
 	}

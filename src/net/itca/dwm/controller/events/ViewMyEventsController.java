@@ -36,4 +36,9 @@ public class ViewMyEventsController extends DataPanelController
 	{
 		return facade.getEventDetails();
 	}
+	
+	public void deleteEvent()
+	{
+		
+	}
 }

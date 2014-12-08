@@ -82,7 +82,15 @@ public class ViewMyEventsPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				String details = controller.getDetails();	
+				String details = controller.getDetails();
+			}
+		});
+
+		deleteButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				controller.deleteEvent();
 			}
 		});
 	}
