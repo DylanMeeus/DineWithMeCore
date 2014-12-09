@@ -1,0 +1,1 @@
+﻿select * from friends where accepted=false and user1=9
