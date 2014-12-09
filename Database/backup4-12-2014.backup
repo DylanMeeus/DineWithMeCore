@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.3.5
 -- Dumped by pg_dump version 9.3.1
--- Started on 2014-12-04 16:29:33
+-- Started on 2014-12-09 03:51:20
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -39,7 +39,8 @@ CREATE TABLE events (
     name character varying(40),
     eventdate date,
     hostid integer,
-    recipeid integer
+    recipeid integer,
+    eventtime time without time zone
 );
 
 
@@ -129,7 +130,7 @@ ALTER SEQUENCE friends_id_seq OWNED BY friends.id;
 
 CREATE TABLE recipes (
     recipeid integer NOT NULL,
-    name character varying(30),
+    name character varying(100),
     ingredients text,
     instructions text,
     userid integer,
@@ -287,7 +288,7 @@ ALTER TABLE ONLY users ALTER COLUMN userid SET DEFAULT nextval('users_userid_seq
 -- Name: event_eventid_seq; Type: SEQUENCE SET; Schema: dinewithme; Owner: postgres
 --
 
-SELECT pg_catalog.setval('event_eventid_seq', 3, true);
+SELECT pg_catalog.setval('event_eventid_seq', 6, true);
 
 
 --
@@ -297,6 +298,7 @@ SELECT pg_catalog.setval('event_eventid_seq', 3, true);
 --
 
 COPY eventinvitees (eventid, inviteeid, accepted) FROM stdin;
+2	17	t
 \.
 
 
@@ -306,10 +308,12 @@ COPY eventinvitees (eventid, inviteeid, accepted) FROM stdin;
 -- Data for Name: events; Type: TABLE DATA; Schema: dinewithme; Owner: postgres
 --
 
-COPY events (eventid, name, eventdate, hostid, recipeid) FROM stdin;
-1	dinner	2014-12-05	15	1
-2	Spaghetti Zeit!	2014-12-09	15	4
-3	Aardbeien bij moeke	2014-12-04	17	5
+COPY events (eventid, name, eventdate, hostid, recipeid, eventtime) FROM stdin;
+1	dinner	2014-12-05	15	1	\N
+2	Spaghetti Zeit!	2014-12-09	15	4	\N
+3	Aardbeien bij moeke	2014-12-04	17	5	\N
+4	Testdinner	2014-12-10	15	4	12:00:00
+5	TimedEvent	2014-12-17	15	4	17:00:00
 \.
 
 
@@ -325,6 +329,8 @@ COPY friends (id, user1, user2, accepted) FROM stdin;
 5	15	12	t
 6	16	15	f
 8	17	15	t
+9	15	4	f
+10	15	9	t
 \.
 
 
@@ -334,7 +340,7 @@ COPY friends (id, user1, user2, accepted) FROM stdin;
 -- Name: friends_id_seq; Type: SEQUENCE SET; Schema: dinewithme; Owner: postgres
 --
 
-SELECT pg_catalog.setval('friends_id_seq', 8, true);
+SELECT pg_catalog.setval('friends_id_seq', 10, true);
 
 
 --
@@ -536,7 +542,7 @@ ALTER TABLE ONLY userrecipes
     ADD CONSTRAINT userrecipes_userid_fkey FOREIGN KEY (userid) REFERENCES users(userid);
 
 
--- Completed on 2014-12-04 16:29:35
+-- Completed on 2014-12-09 03:51:22
 
 --
 -- PostgreSQL database dump complete
