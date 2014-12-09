@@ -3,6 +3,25 @@ DineWithMeCore
 
 The core (model) logic of the DineWithMe application.
 
+Additional information
+----------------------
+- Javadoc now available on www.it-ca.net/DineWithMe/JavaDoc
+- Code Metrics now available on www.it-ca.net/DineWithMe/Metrics
+
+
+
+As of 9/12/2014 milestone commit
+--------------------------------
+- Finished main functions of the core application
+	- Event creation / accepting / deleting
+	- Friend request sending / accepting / deleting
+	- User login / logout / ..
+	- Encryption, database encoding, ...
+- Added necessary JPanels and controllers for the functions
+- Minor fixes all around the project
+- Javadoc now available on www.it-ca.net/DineWithMe/JavaDoc
+- Code Metrics now available on www.it-ca.net/DineWithMe/Metrics
+
 
 As of 7/12/2014:
 ----------------
