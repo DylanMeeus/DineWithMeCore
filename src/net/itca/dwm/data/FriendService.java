@@ -70,17 +70,28 @@ public class FriendService extends Database implements DataService
 	 * @return
 	 * @throws Exception
 	 */
-	private int getFriendID(String friend) throws Exception
+	public int getFriendID(String friend) throws Exception
 	{
-		String selectIDString = "select userid from users where username='"
-				+ friend + "';";
-		Statement selectIDStatement = connection.createStatement();
-		ResultSet results = selectIDStatement.executeQuery(selectIDString);
-		while (results.next())
+		try
 		{
-			return results.getInt("userid");
+			openConnection();
+			String selectIDString = "select userid from users where username='"
+					+ friend + "';";
+			Statement selectIDStatement = connection.createStatement();
+			ResultSet results = selectIDStatement.executeQuery(selectIDString);
+			while (results.next())
+			{
+				return results.getInt("userid");
+			}
 		}
-
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
 		return -1;
 	}
 

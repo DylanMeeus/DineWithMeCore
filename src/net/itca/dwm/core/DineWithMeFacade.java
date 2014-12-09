@@ -117,15 +117,15 @@ public class DineWithMeFacade
 	
 	// Events
 	
-	public void createEvent(String eventname, String date, String recipeName) throws ServiceException
+	public void createEvent(String eventname, String date, String time, String recipeName) throws ServiceException
 	{
 		int recipeID = ((RecipeService)serviceFactory.getService(ServiceType.RECIPESERVICE)).getRecipeID(recipeName, session.getCurrentUser().getID());
-		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).createEvent(eventname, date, session.getCurrentUser().getID(), recipeID);
+		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).createEvent(eventname, date, time, session.getCurrentUser().getID(), recipeID);
 	}
 	
 	public ArrayList<String> getEvents() throws ServiceException
 	{
-		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getEvents(session.getCurrentUser().getID());
+		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getMyEvents(session.getCurrentUser().getID());
 	}
 	
 	public String getEventDetails()
@@ -133,8 +133,13 @@ public class DineWithMeFacade
 		return "Details";
 	}
 	
-	public void InviteFriend(String eventname, String friendname) throws ServiceException
+	public void InviteFriend(String eventname, String friendname) throws ServiceException, Exception
 	{
-		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).inviteUserToEvent(friendname, eventname, session.getCurrentUser().getID());
+		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).inviteUserToEvent(((FriendService)serviceFactory.getService(ServiceType.FRIENDSERVICE)).getFriendID(friendname), eventname, session.getCurrentUser().getID());
+	}
+	
+	public ArrayList<String> getEVentInvites() throws ServiceException
+	{
+		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getEventInvites(session.getCurrentUser().getID());
 	}
 }

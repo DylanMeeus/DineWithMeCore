@@ -14,12 +14,12 @@ import net.itca.dwm.interfaces.DataService;
  */
 public class EventService extends Database implements DataService
 {
-	public void createEvent(String name, String date, int hostid, int recipeid)
+	public void createEvent(String name, String date, String time, int hostid, int recipeid)
 	{
 		try
 		{
 			openConnection();
-			String createEventStatement = "insert into events(name,eventdate,hostid,recipeid) values('"
+			String createEventStatement = "insert into events(name,eventdate,hostid,recipeid, eventtime) values('"
 					+ name
 					+ "','"
 					+ date
@@ -27,7 +27,7 @@ public class EventService extends Database implements DataService
 					+ hostid
 					+ ","
 					+ recipeid
-					+ ");";
+					+ ", '"+time+"');";
 			System.out.println("SQL: " + createEventStatement);
 			Statement createStatement = connection.createStatement();
 			int affected = createStatement.executeUpdate(createEventStatement);
@@ -39,8 +39,14 @@ public class EventService extends Database implements DataService
 			closeConnection();
 		}
 	}
-
-	public ArrayList<String> getEvents(int currentUserID)
+	
+		
+	/**
+	 * Get events belonging to the currently logged in user.
+	 * @param currentUserID
+	 * @return
+	 */
+	public ArrayList<String> getMyEvents(int currentUserID)
 	{
 		ArrayList<String> events = new ArrayList<String>();
 		try
@@ -64,10 +70,26 @@ public class EventService extends Database implements DataService
 		return events;
 	}
 
-	public void inviteUserToEvent(String invitee, String eventname, int currentUser)
+	public void inviteUserToEvent(int inviteeID, String eventname, int currentUser)
 	{
 		int eventID = getEventID(eventname, currentUser);
-		System.out.println("event id: " + eventID);
+		System.out.println("event id: " + eventID +"friend id:" + inviteeID);
+		try
+		{
+			openConnection();
+			String insertUsers = "insert into eventinvitees values("+eventID+","+inviteeID+", false);";
+			System.out.println("SQL: " + insertUsers);
+			Statement insertStatement = connection.createStatement();
+			int affected = insertStatement.executeUpdate(insertUsers);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
 	}
 
 	private int getEventID(String eventname, int currentUser)
@@ -94,6 +116,34 @@ public class EventService extends Database implements DataService
 		}
 
 		return id;
+	}
+	
+	
+	public ArrayList<String> getEventInvites(int currentUser)
+	{
+		ArrayList<String> invites = new ArrayList<String>();
+		try
+		{
+			openConnection();
+			String selectEventInvites = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="+currentUser+" and accepted=false;";
+			Statement selectStatement = connection.createStatement();
+			ResultSet results = selectStatement.executeQuery(selectEventInvites);
+			while(results.next())
+			{
+				String addInvite = results.getString("name") + " " + results.getString("eventdate") + " " + results.getString("username");
+				invites.add(addInvite);
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+		
+		return invites;
 	}
 
 }

@@ -33,9 +33,7 @@ public class Database /* implements Datasource */
 	{
 		try
 		{
-			if(connection==null)
-				connection = DriverManager.getConnection(url, "postgres",dbpassword);
-		
+			connection = DriverManager.getConnection(url, "postgres",dbpassword);
 			Statement statement = connection.createStatement(); 
 			statement.execute("set search_path to '" + schema + "'"); 
 			statement.close();

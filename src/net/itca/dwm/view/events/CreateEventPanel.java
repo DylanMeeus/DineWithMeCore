@@ -20,8 +20,8 @@ public class CreateEventPanel extends JPanel
 {
 
 	private JButton menuButton, createButton;
-	private JLabel nameLabel, dateLabel, recipeNameLabel;
-	private JTextField nameField, dateField;
+	private JLabel nameLabel, dateLabel, recipeNameLabel, timeLabel;
+	private JTextField nameField, dateField, timeField;
 	private JComboBox recipeBox;
 	private CreateEventController controller;
 
@@ -40,9 +40,11 @@ public class CreateEventPanel extends JPanel
 		JPanel dataPanel = new JPanel();
 		nameLabel = new JLabel("name");
 		dateLabel = new JLabel("date");
+		timeLabel = new JLabel("time");
 		recipeNameLabel = new JLabel("Recipe name");
 		nameField = new JTextField(10);
 		dateField = new JTextField(4);
+		timeField = new JTextField(4);
 		recipeBox = new JComboBox();
 		dataPanel.setLayout(new GridLayout(10, 1));
 		
@@ -50,6 +52,8 @@ public class CreateEventPanel extends JPanel
 		dataPanel.add(nameField);
 		dataPanel.add(dateLabel);
 		dataPanel.add(dateField);
+		dataPanel.add(timeLabel);
+		dataPanel.add(timeField);
 		dataPanel.add(recipeNameLabel);
 		dataPanel.add(recipeBox);
 		dataPanel.add(createButton);
@@ -100,8 +104,9 @@ public class CreateEventPanel extends JPanel
 			{
 				String eventName = nameField.getText();
 				String date = dateField.getText();
+				String time = timeField.getText();
 				String recipeName = recipeBox.getSelectedItem().toString();
-				controller.createEvent(eventName, date, recipeName);
+				controller.createEvent(eventName, date, time, recipeName);
 			}
 		});
 	}

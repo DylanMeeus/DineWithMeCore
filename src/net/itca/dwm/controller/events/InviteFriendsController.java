@@ -17,9 +17,10 @@ public class InviteFriendsController extends DataPanelController
 	
 	public void inviteFriend(String event, String friendname)
 	{
+		String friend = friendname.split(" ")[0];
 		try
 		{
-			facade.InviteFriend(event, friendname);
+			facade.InviteFriend(event, friend);
 		}
 		catch(Exception ex)
 		{
@@ -59,4 +60,5 @@ public class InviteFriendsController extends DataPanelController
 		}
 		return friends;
 	}
+	
 }

@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -63,7 +64,6 @@ public class ViewEventInvitesPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e)
 			{
-				// TODO Auto-generated method stub
 				
 			}
 		
@@ -74,8 +74,6 @@ public class ViewEventInvitesPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e)
 			{
-				// TODO Auto-generated method stub
-				
 			}
 		
 		});
@@ -85,8 +83,8 @@ public class ViewEventInvitesPanel extends JPanel
 
 			public void ancestorAdded(AncestorEvent arg0)
 			{
-				// TODO Auto-generated method stub
-				
+				Vector<String> eventinvites = controller.getEventInvites();
+				invites.setListData(eventinvites);
 			}
 
 			public void ancestorMoved(AncestorEvent arg0)

@@ -51,11 +51,11 @@ public class CreateEventController extends DataPanelController
 	 * @param date
 	 * @param recipeName
 	 */
-	public void createEvent(String name, String date, String recipeName)
+	public void createEvent(String name, String date, String time, String recipeName)
 	{
 		try
 		{
-			facade.createEvent(name, date, recipeName);
+			facade.createEvent(name, date, time, recipeName);
 		} catch (Exception ex)
 		{
 			ex.printStackTrace();
