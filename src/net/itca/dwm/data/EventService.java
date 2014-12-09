@@ -101,6 +101,7 @@ public class EventService extends Database implements DataService
 			openConnection();
 			String fetchIDString = "select eventid from events where name='"
 					+ eventname + "';";
+			System.out.println("SQL: " + fetchIDString);
 			Statement fetchStatement = connection.createStatement();
 			ResultSet results = fetchStatement.executeQuery(fetchIDString);
 			while (results.next())
@@ -130,7 +131,7 @@ public class EventService extends Database implements DataService
 			ResultSet results = selectStatement.executeQuery(selectEventInvites);
 			while(results.next())
 			{
-				String addInvite = results.getString("name") + " " + results.getString("eventdate") + " " + results.getString("username");
+				String addInvite = results.getString("name")  + "|" + results.getString("username") + "|" + results.getString("eventdate") + "|" + results.getString("eventtime");
 				invites.add(addInvite);
 			}
 		}
@@ -144,6 +145,27 @@ public class EventService extends Database implements DataService
 		}
 		
 		return invites;
+	}
+	
+	public void acceptEventInvite(String eventname, int currentUser)
+	{
+		try
+		{
+			int eventID = getEventID(eventname, currentUser);
+			openConnection();
+			String acceptString = "update eventinvitees set accepted = true where eventid=" + eventID + " and inviteeid="+currentUser+";";
+			System.out.println("SQL: " + acceptString);
+			Statement acceptStatement = connection.createStatement();
+			int affected = acceptStatement.executeUpdate(acceptString);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
 	}
 
 }

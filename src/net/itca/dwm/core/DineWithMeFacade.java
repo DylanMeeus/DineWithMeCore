@@ -142,4 +142,9 @@ public class DineWithMeFacade
 	{
 		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getEventInvites(session.getCurrentUser().getID());
 	}
+	
+	public void acceptEventInvite(String event) throws ServiceException
+	{
+		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).acceptEventInvite(event, session.getCurrentUser().getID());
+	}
 }

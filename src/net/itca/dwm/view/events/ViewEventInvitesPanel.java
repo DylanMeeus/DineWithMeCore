@@ -64,7 +64,7 @@ public class ViewEventInvitesPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e)
 			{
-				
+				controller.acceptInvite(invites.getSelectedValue());
 			}
 		
 		});
@@ -98,9 +98,6 @@ public class ViewEventInvitesPanel extends JPanel
 				// TODO Auto-generated method stub
 				
 			}
-
-			
-
 		});
 	}
 }
