@@ -14,7 +14,8 @@ import net.itca.dwm.interfaces.DataService;
  */
 public class EventService extends Database implements DataService
 {
-	public void createEvent(String name, String date, String time, int hostid, int recipeid)
+	public void createEvent(String name, String date, String time, int hostid,
+			int recipeid)
 	{
 		try
 		{
@@ -27,7 +28,7 @@ public class EventService extends Database implements DataService
 					+ hostid
 					+ ","
 					+ recipeid
-					+ ", '"+time+"');";
+					+ ", '" + time + "');";
 			System.out.println("SQL: " + createEventStatement);
 			Statement createStatement = connection.createStatement();
 			int affected = createStatement.executeUpdate(createEventStatement);
@@ -39,10 +40,10 @@ public class EventService extends Database implements DataService
 			closeConnection();
 		}
 	}
-	
-		
+
 	/**
 	 * Get events belonging to the currently logged in user.
+	 * 
 	 * @param currentUserID
 	 * @return
 	 */
@@ -70,23 +71,23 @@ public class EventService extends Database implements DataService
 		return events;
 	}
 
-	public void inviteUserToEvent(int inviteeID, String eventname, int currentUser)
+	public void inviteUserToEvent(int inviteeID, String eventname,
+			int currentUser)
 	{
 		int eventID = getEventID(eventname, currentUser);
-		System.out.println("event id: " + eventID +"friend id:" + inviteeID);
+		System.out.println("event id: " + eventID + "friend id:" + inviteeID);
 		try
 		{
 			openConnection();
-			String insertUsers = "insert into eventinvitees values("+eventID+","+inviteeID+", false);";
+			String insertUsers = "insert into eventinvitees values(" + eventID
+					+ "," + inviteeID + ", false);";
 			System.out.println("SQL: " + insertUsers);
 			Statement insertStatement = connection.createStatement();
 			int affected = insertStatement.executeUpdate(insertUsers);
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			ex.printStackTrace();
-		}
-		finally
+		} finally
 		{
 			closeConnection();
 		}
@@ -118,51 +119,52 @@ public class EventService extends Database implements DataService
 
 		return id;
 	}
-	
-	
+
 	public ArrayList<String> getEventInvites(int currentUser)
 	{
 		ArrayList<String> invites = new ArrayList<String>();
 		try
 		{
 			openConnection();
-			String selectEventInvites = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="+currentUser+" and accepted=false;";
+			String selectEventInvites = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="
+					+ currentUser + " and accepted=false;";
 			Statement selectStatement = connection.createStatement();
-			ResultSet results = selectStatement.executeQuery(selectEventInvites);
-			while(results.next())
+			ResultSet results = selectStatement
+					.executeQuery(selectEventInvites);
+			while (results.next())
 			{
-				String addInvite = results.getString("name")  + "|" + results.getString("username") + "|" + results.getString("eventdate") + "|" + results.getString("eventtime");
+				String addInvite = results.getString("name") + "|"
+						+ results.getString("username") + "|"
+						+ results.getString("eventdate") + "|"
+						+ results.getString("eventtime");
 				invites.add(addInvite);
 			}
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			ex.printStackTrace();
-		}
-		finally
+		} finally
 		{
 			closeConnection();
 		}
-		
+
 		return invites;
 	}
-	
+
 	public void acceptEventInvite(String eventname, int currentUser)
 	{
 		try
 		{
 			int eventID = getEventID(eventname, currentUser);
 			openConnection();
-			String acceptString = "update eventinvitees set accepted = true where eventid=" + eventID + " and inviteeid="+currentUser+";";
+			String acceptString = "update eventinvitees set accepted = true where eventid="
+					+ eventID + " and inviteeid=" + currentUser + ";";
 			System.out.println("SQL: " + acceptString);
 			Statement acceptStatement = connection.createStatement();
 			int affected = acceptStatement.executeUpdate(acceptString);
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			ex.printStackTrace();
-		}
-		finally
+		} finally
 		{
 			closeConnection();
 		}
@@ -171,51 +173,62 @@ public class EventService extends Database implements DataService
 	public ArrayList<String> getAcceptedEvents(int currentUser)
 	{
 		ArrayList<String> accepted = new ArrayList<String>();
-		
+
 		try
 		{
 			openConnection();
-			String selectAcceptedInvites = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="+currentUser+" and accepted=true;";
+			String selectAcceptedInvites = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="
+					+ currentUser + " and accepted=true;";
 			Statement selectStatement = connection.createStatement();
 			System.out.println("SQL: " + selectAcceptedInvites);
-			ResultSet results = selectStatement.executeQuery(selectAcceptedInvites);
-			while(results.next())
+			ResultSet results = selectStatement
+					.executeQuery(selectAcceptedInvites);
+			while (results.next())
 			{
-				String addInvite = results.getString("name")  + "|" + results.getString("username") + "|" + results.getString("eventdate") + "|" + results.getString("eventtime");
+				String addInvite = results.getString("name") + "|"
+						+ results.getString("username") + "|"
+						+ results.getString("eventdate") + "|"
+						+ results.getString("eventtime");
 				accepted.add(addInvite);
 			}
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			ex.printStackTrace();
-		}
-		finally
+		} finally
 		{
 			closeConnection();
 		}
 		return accepted;
 	}
-	
+
 	public String getEventDetails(String eventname, int currentUser)
 	{
-		String details="";
+		String details = "";
 		try
 		{
 			openConnection();
-			String selectDetails = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="+currentUser+" and accepted=true and name='"+eventname+"';";
+			String selectDetails = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid inner join recipes using(recipeid) where inviteeid="
+					+ currentUser
+					+ " and accepted=true and name='"
+					+ eventname
+					+ "';";
 			Statement selectStatement = connection.createStatement();
+			System.out.println("SQL: " + selectDetails);
 			ResultSet results = selectStatement.executeQuery(selectDetails);
-			while(results.next())
+			while (results.next())
 			{
-				details += results.getString("name") +"\n" + results.getString("eventdate") + "\n" + results.getString("eventtime") + "\n" + results.getString("username") + "\n" + results.getString("firstname") + " " + results.getString("lastname");
+				details += results.getString("name") + "\n"
+						+ results.getString("eventdate") + "\n"
+						+ results.getString("eventtime") + "\n"
+						+ results.getString("username") + "\n"
+						+ results.getString("firstname") + " "
+						+ results.getString("lastname") + "\n" + results.getString("recipename");
 			}
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			ex.printStackTrace();
-		}
-		finally
-		{
+		} finally
+		{ 
 			closeConnection();
 		}
 		return details;

@@ -35,7 +35,7 @@ public class RecipeService extends Database implements DataService
 		try
 		{
 			openConnection();
-			String createRecipeString = "Insert into recipes(name,ingredients,instructions,userid, people) values ('"
+			String createRecipeString = "Insert into recipes(recipename,ingredients,instructions,userid, people) values ('"
 					+ name
 					+ "', '"
 					+ ingredients
@@ -78,13 +78,13 @@ public class RecipeService extends Database implements DataService
 		try
 		{
 			openConnection();
-			String getRecipesString = "select name from recipes where userid="
+			String getRecipesString = "select recipename from recipes where userid="
 					+ userID + ";";
 			Statement recipeStatement = connection.createStatement();
 			ResultSet results = recipeStatement.executeQuery(getRecipesString);
 			while (results.next())
 			{
-				recipes.add(results.getString("name"));
+				recipes.add(results.getString("recipename"));
 			}
 		} catch (Exception ex)
 		{
@@ -114,13 +114,13 @@ public class RecipeService extends Database implements DataService
 		try
 		{
 			openConnection();
-			String getDetailString = "select name, people, ingredients, instructions from recipes where name='"+recipeName+"' and userid="+currentUserID+";";
+			String getDetailString = "select recipename, people, ingredients, instructions from recipes where recipename='"+recipeName+"' and userid="+currentUserID+";";
 			Statement getDetailStatement = connection.createStatement();
 			ResultSet results = getDetailStatement
 					.executeQuery(getDetailString);
 			while (results.next())
 			{
-				name = results.getString("name");
+				name = results.getString("recipename");
 				people = results.getInt("people");
 				ingredients = results.getString("ingredients");
 				instructions = results.getString("instructions");
@@ -148,7 +148,7 @@ public class RecipeService extends Database implements DataService
 		try
 		{
 			openConnection();
-			String deleteRecipeString = "delete from recipes where userid="+currentUserID+" and name='"+recipeName+"';";
+			String deleteRecipeString = "delete from recipes where userid="+currentUserID+" and recipename='"+recipeName+"';";
 			Statement deleteStatement = connection.createStatement();
 			int affected = deleteStatement.executeUpdate(deleteRecipeString);	
 		}
@@ -175,7 +175,7 @@ public class RecipeService extends Database implements DataService
 		try
 		{
 			openConnection();
-			String getDetailString = "select recipeid from recipes where name='"+recipename+"' and userid="+currentUserID+";";
+			String getDetailString = "select recipeid from recipes where recipename='"+recipename+"' and userid="+currentUserID+";";
 			Statement getDetailStatement = connection.createStatement();
 			ResultSet results = getDetailStatement
 					.executeQuery(getDetailString);
