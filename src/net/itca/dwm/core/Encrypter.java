@@ -18,7 +18,7 @@ public class Encrypter
 	
 
 	/**
-	 * SHA-1 encryption.
+	 * SHA-1 encryption. (actually a hash)
 	 * 
 	 * @param toEncrypt
 	 * @return
