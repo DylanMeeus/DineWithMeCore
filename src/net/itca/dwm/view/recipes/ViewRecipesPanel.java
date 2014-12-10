@@ -12,11 +12,12 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
 import net.itca.dwm.controller.recipes.ViewRecipesController;
+import net.itca.dwm.view.DetailsDialog;
 
 public class ViewRecipesPanel extends JPanel
 {
 
-	ViewRecipesController controller;
+	private ViewRecipesController controller;
 
 	private JList recipeList;
 	private JButton menuButton, detailButton, deleteButton;
@@ -87,7 +88,7 @@ public class ViewRecipesPanel extends JPanel
 			{
 				String details = controller.getDetails(recipeList
 						.getSelectedValue().toString());
-				RecipeDetailsDialog detailDialog = new RecipeDetailsDialog(
+				DetailsDialog detailDialog = new DetailsDialog(
 						details);
 				detailDialog.show();
 			}

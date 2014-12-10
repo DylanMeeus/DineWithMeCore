@@ -1,16 +1,22 @@
 package net.itca.dwm.controller.users;
 
 import net.itca.dwm.controller.DataPanelController;
+import net.itca.dwm.controller.LoginController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.view.LoginPanel;
+import net.itca.dwm.view.MainView;
 
 /**
  * 
  * @author Dylan
  *
  */
-public class CreateUserController extends DataPanelController
+public class CreateUserController
 {
-	DineWithMeFacade facade;
+	
+	
+	
+	private DineWithMeFacade facade;
 	
 	/**
 	 * 
@@ -40,6 +46,13 @@ public class CreateUserController extends DataPanelController
 		{
 			ex.printStackTrace();
 		}
+	}
+	
+	public void navigateMenu()
+	{
+		LoginPanel lp = new LoginPanel(new LoginController(new DineWithMeFacade()));
+		MainView mv = MainView.getMainView();
+		mv.setMainPanel(lp);
 	}
 
 }

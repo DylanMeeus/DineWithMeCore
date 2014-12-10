@@ -9,7 +9,7 @@ import net.itca.dwm.core.DineWithMeFacade;
 public class ViewFriendsController extends DataPanelController
 {
 	
-	DineWithMeFacade facade;
+	private DineWithMeFacade facade;
 	public ViewFriendsController(DineWithMeFacade dwmFacade)
 	{
 		facade = dwmFacade;

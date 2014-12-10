@@ -13,7 +13,7 @@ import net.itca.dwm.core.DineWithMeFacade;
  */
 public class CreateEventController extends DataPanelController
 {
-	DineWithMeFacade facade;
+	private DineWithMeFacade facade;
 
 	/**
 	 * 

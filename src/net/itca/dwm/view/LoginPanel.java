@@ -16,6 +16,8 @@ import net.itca.dwm.controller.LoginController;
 public class LoginPanel extends JPanel
 {
 
+	
+	private static final long serialVersionUID = 9159041660120670276L;
 	private JLabel usernameLabel, passwordLabel;
 	private JTextField username;
 	private JPasswordField password;

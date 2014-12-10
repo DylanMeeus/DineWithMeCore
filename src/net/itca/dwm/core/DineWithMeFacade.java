@@ -128,9 +128,9 @@ public class DineWithMeFacade
 		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getMyEvents(session.getCurrentUser().getID());
 	}
 	
-	public String getEventDetails()
+	public String getEventDetails(String eventName) throws ServiceException
 	{
-		return "Details";
+		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getEventDetails(eventName, session.getCurrentUser().getID());
 	}
 	
 	public void InviteFriend(String eventname, String friendname) throws ServiceException, Exception
@@ -146,5 +146,15 @@ public class DineWithMeFacade
 	public void acceptEventInvite(String event) throws ServiceException
 	{
 		((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).acceptEventInvite(event, session.getCurrentUser().getID());
+	}
+	
+	/**
+	 * Gets accepted events belonging to a certain user.
+	 * @return
+	 * @throws ServiceException 
+	 */
+	public ArrayList<String> getAcceptedEvents() throws ServiceException
+	{
+		return ((EventService)serviceFactory.getService(ServiceType.EVENTSERVICE)).getAcceptedEvents(session.getCurrentUser().getID());		
 	}
 }

@@ -12,10 +12,12 @@ import net.itca.dwm.controller.LoginHomeController;
 
 public class LoginHomePanel extends JPanel
 {
-	JButton logout, addFriend, viewFriends, viewMyEvents, viewEventInvites,
-			createEvent, viewRecipes, createRecipes, viewFriendInvites,
-			inviteFriendToEvent;
-	LoginHomeController lhcController; // Not the hadron collider! ;)
+
+	private static final long serialVersionUID = 2693157744624658053L;
+	private JButton logout, addFriend, viewFriends, viewMyEvents,
+			viewEventInvites, createEvent, viewRecipes, createRecipes,
+			viewFriendInvites, inviteFriendToEvent, viewAcceptedEvents;
+	private LoginHomeController lhcController; // Not the hadron collider! ;)
 
 	public LoginHomePanel(LoginHomeController controller)
 	{
@@ -31,6 +33,7 @@ public class LoginHomePanel extends JPanel
 		viewFriends = new JButton("view friends");
 		viewMyEvents = new JButton("View my events");
 		viewEventInvites = new JButton("View event invites");
+		viewAcceptedEvents = new JButton("View accepted events");
 		createEvent = new JButton("Create event");
 		viewRecipes = new JButton("View recipes");
 		createRecipes = new JButton("Create recipes");
@@ -49,6 +52,7 @@ public class LoginHomePanel extends JPanel
 		buttonPanel.add(inviteFriendToEvent);
 		buttonPanel.add(viewMyEvents);
 		buttonPanel.add(viewEventInvites);
+		buttonPanel.add(viewAcceptedEvents);
 		buttonPanel.add(viewRecipes);
 		buttonPanel.add(createRecipes);
 
@@ -144,6 +148,13 @@ public class LoginHomePanel extends JPanel
 			public void actionPerformed(ActionEvent arg0)
 			{
 				lhcController.navigateInviteFriendToEvent();
+			}
+		});
+		viewAcceptedEvents.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				lhcController.navigateViewAcceptedEvents();
 			}
 		});
 	}

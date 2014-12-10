@@ -74,6 +74,7 @@ public class ViewEventInvitesPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e)
 			{
+				
 			}
 		
 		});

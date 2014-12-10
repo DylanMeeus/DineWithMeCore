@@ -168,4 +168,56 @@ public class EventService extends Database implements DataService
 		}
 	}
 
+	public ArrayList<String> getAcceptedEvents(int currentUser)
+	{
+		ArrayList<String> accepted = new ArrayList<String>();
+		
+		try
+		{
+			openConnection();
+			String selectAcceptedInvites = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="+currentUser+" and accepted=true;";
+			Statement selectStatement = connection.createStatement();
+			System.out.println("SQL: " + selectAcceptedInvites);
+			ResultSet results = selectStatement.executeQuery(selectAcceptedInvites);
+			while(results.next())
+			{
+				String addInvite = results.getString("name")  + "|" + results.getString("username") + "|" + results.getString("eventdate") + "|" + results.getString("eventtime");
+				accepted.add(addInvite);
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+		return accepted;
+	}
+	
+	public String getEventDetails(String eventname, int currentUser)
+	{
+		String details="";
+		try
+		{
+			openConnection();
+			String selectDetails = "select * from eventinvitees inner join events using(eventid) inner join users on events.hostid = users.userid where inviteeid="+currentUser+" and accepted=true and name='"+eventname+"';";
+			Statement selectStatement = connection.createStatement();
+			ResultSet results = selectStatement.executeQuery(selectDetails);
+			while(results.next())
+			{
+				details += results.getString("name") +"\n" + results.getString("eventdate") + "\n" + results.getString("eventtime") + "\n" + results.getString("username") + "\n" + results.getString("firstname") + " " + results.getString("lastname");
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+		return details;
+	}
 }
