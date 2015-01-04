@@ -33,6 +33,7 @@ public class FriendService extends Database implements DataService
 		boolean succes = false;
 		try
 		{
+			int friendID = getFriendID(friend);
 			openConnection();
 
 			// check if user exists
@@ -41,7 +42,6 @@ public class FriendService extends Database implements DataService
 				throw new UserNotFoundException("User not found in database");
 			} else
 			{
-				int friendID = getFriendID(friend);
 				String addString = "insert into friends(user1,user2,accepted)values('"
 						+ currentUserID + "','" + friendID + "',false);";
 				System.out.println("SQL: " + addString);
@@ -149,7 +149,7 @@ public class FriendService extends Database implements DataService
 
 			for (int i = 0; i < returnedIDs.size(); i++)
 			{
-				invites.add(getUserInfoByID(returnedIDs.get(i)));
+				invites.add(getUserInfo(returnedIDs.get(i)));
 			}
 
 		} catch (Exception ex)
@@ -172,11 +172,13 @@ public class FriendService extends Database implements DataService
 	public boolean acceptFriend(int currentUserID, String friendname)
 	{
 		boolean accepted = false;
+		
 		try
 		{
+			int friendID = getFriendID(friendname);
 			openConnection();
 			String acceptString = "update friends set accepted = true where user1="
-					+ getFriendID(friendname)
+					+ friendID
 					+ " and user2="
 					+ currentUserID
 					+ ";";
@@ -225,7 +227,7 @@ public class FriendService extends Database implements DataService
 
 			for (int i = 0; i < friendids.size(); i++)
 			{
-				friends.add(getUserInfoByID(friendids.get(i)));
+				friends.add(getUserInfo(friendids.get(i)));
 			}
 
 		}
@@ -247,13 +249,13 @@ public class FriendService extends Database implements DataService
 	 * @return
 	 * @throws SQLException
 	 */
-	private String getUserInfoByID(int userid) throws SQLException
+	private String getUserInfo(int userid) throws SQLException
 	{
-		String inviteString = "select username, firstname, lastname from users where userid="
+		String getInfoString = "select username, firstname, lastname from users where userid="
 				+ userid + ";";
-		System.out.println("SQL: " + inviteString);
+		System.out.println("SQL: " + getInfoString);
 		Statement inviteStatement = connection.createStatement();
-		ResultSet results = inviteStatement.executeQuery(inviteString);
+		ResultSet results = inviteStatement.executeQuery(getInfoString);
 		while (results.next())
 		{
 			String entry = results.getString("username") + " "
@@ -262,6 +264,41 @@ public class FriendService extends Database implements DataService
 			return entry;
 		}
 		return null;
+	}
+	
+	/**
+	 * Returns all the user information of a friend. (Username, firstname, lastname)
+	 * @param username
+	 * @return
+	 */
+	public String getFriendInfo(String username)
+	{
+		String userInfo = "";
+		try
+		{
+			openConnection();
+			String getInfoString = "select username, firstname, lastname from users where username='"
+					+ username + "';";
+			System.out.println("SQL: " + getInfoString);
+			Statement inviteStatement = connection.createStatement();
+			ResultSet results = inviteStatement.executeQuery(getInfoString);
+			while (results.next())
+			{
+				userInfo += results.getString("username") + "\n "
+						+ results.getString("firstname") + "\n "
+						+ results.getString("lastname");
+			}
+			
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+		return userInfo;
 	}
 	
 	/**
@@ -277,8 +314,8 @@ public class FriendService extends Database implements DataService
 		boolean succes = false;
 		try
 		{
-			openConnection();
 			int friendID = getFriendID(friend);
+			openConnection();
 			String deleteRequest = "delete from friends where user2=" + currentUserID + " and user1=" + friendID+";";
 			System.out.println("SQL: " + deleteRequest);
 			Statement deleteStatement = connection.createStatement();
@@ -295,5 +332,33 @@ public class FriendService extends Database implements DataService
 			closeConnection();
 		}
 		return succes;
+	}
+	
+	/**
+	 * Deletes a friend (both relationships 'user-friend', 'friend-user')
+	 * @param friendID
+	 * @param userID
+	 */
+	public void deleteFriend(int friendID, int userID)
+	{
+		try
+		{
+			openConnection();
+			String deleteFriend1 = "delete from friends where user1="+friendID+" and user2="+userID+";";
+			String deleteFriend2 = "delete from friends where user1="+userID+" and user2="+friendID+";";
+			Statement delStatement = connection.createStatement();
+			System.out.println("SQL: " + deleteFriend1);
+			int affected1 = delStatement.executeUpdate(deleteFriend1);
+			System.out.println("SQL: " + deleteFriend2);
+			int affected2 = delStatement.executeUpdate(deleteFriend2);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
 	}
 }

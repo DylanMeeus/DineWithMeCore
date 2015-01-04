@@ -1,7 +1,9 @@
+ServiceTests
 net.itca.dwm.controller
 net.itca.dwm.controller.events
 net.itca.dwm.controller.friends
 net.itca.dwm.controller.recipes
+net.itca.dwm.controller.users
 net.itca.dwm.core
 net.itca.dwm.data
 net.itca.dwm.exceptions
@@ -11,3 +13,4 @@ net.itca.dwm.view
 net.itca.dwm.view.events
 net.itca.dwm.view.friends
 net.itca.dwm.view.recipes
+net.itca.dwm.view.users

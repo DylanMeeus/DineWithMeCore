@@ -1,5 +1,6 @@
 package net.itca.dwm.data;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -15,6 +16,14 @@ import net.itca.dwm.interfaces.DataService;
 public class UserService extends Database implements DataService
 {
 
+	private PreparedStatement preparedStatement;
+
+	
+	public UserService()
+	{
+		super();
+	}
+	
 	/**
 	 * Checks whether or not a given username exists.
 	 * @param username
@@ -26,11 +35,11 @@ public class UserService extends Database implements DataService
 		// check if user exists
 		try
 		{
-			String getUsername = "select * from users where username='"
-					+ username + "';";
+			String getUsername = "select * from users where username= ? ";
 			System.out.println("SQL: " + getUsername);
-			Statement getUserStatement = connection.createStatement();
-			ResultSet getUserResults = getUserStatement.executeQuery(getUsername);
+			preparedStatement = connection.prepareStatement(getUsername);
+			preparedStatement.setString(1, username);
+			ResultSet getUserResults = preparedStatement.executeQuery();
 			while (getUserResults.next())
 			{
 				if((getUserResults.getString("username").equals(username)))
@@ -66,11 +75,14 @@ public class UserService extends Database implements DataService
 			openConnection();
 			if(!usernameExists(username))
 			{
-				String createString = "insert into users(username,firstname,lastname,password) values('" + username
-						+ "','" + firstname + "','" + lastname + "','" + password +  "');";
+				String createString = "insert into users(username,firstname,lastname,password) values(?,?,?,?);";
 				System.out.println("SQL: " + createString);
-				Statement createStatement = connection.createStatement();
-				int affectedRows = createStatement.executeUpdate(((createString)));
+				preparedStatement = connection.prepareStatement(createString);
+				preparedStatement.setString(1, username);
+				preparedStatement.setString(2, firstname);
+				preparedStatement.setString(3, lastname);
+				preparedStatement.setString(4,password);
+				int affectedRows = preparedStatement.executeUpdate();
 				if(affectedRows==1)
 				{
 					succes = true;
@@ -103,11 +115,12 @@ public class UserService extends Database implements DataService
 		try
 		{
 			openConnection();
-			String loginString = "select count(username) from users where username='"
-					+ username + "' and password='" + password + "'";
+			String loginString = "select count(username) from users where username= ? and password = ? ";
 			System.out.println("SQL: " + loginString);
-			Statement loginStatement = connection.createStatement();
-			ResultSet res = loginStatement.executeQuery(((loginString)));
+			preparedStatement = connection.prepareStatement(loginString);
+			preparedStatement.setString(1, username);
+			preparedStatement.setString(2,password);
+			ResultSet res = preparedStatement.executeQuery();
 			while (res.next())
 			{
 				if (res.getShort("count") == 1)

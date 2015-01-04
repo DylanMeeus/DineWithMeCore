@@ -26,7 +26,7 @@ public class ViewEventInvitesController extends DataPanelController
 		
 		try
 		{
-			ArrayList<String> aInvites = facade.getEVentInvites();
+			ArrayList<String> aInvites = facade.getEventInvites();
 			for(String invite : aInvites)
 			{
 				invites.add(invite);
@@ -52,5 +52,20 @@ public class ViewEventInvitesController extends DataPanelController
 			ex.printStackTrace();
 		}
 		
+	}
+	
+	public void declineInvite(String event)
+	{
+		String eventString = event.split("\\|")[0];
+		try
+		{
+			facade.deleteEvent(eventString);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
+	
 	}
 }

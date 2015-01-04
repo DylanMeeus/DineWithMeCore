@@ -90,7 +90,7 @@ public class ViewMyEventsPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				controller.deleteEvent();
+				controller.deleteEvent(eventList.getSelectedValue().toString());
 			}
 		});
 	}

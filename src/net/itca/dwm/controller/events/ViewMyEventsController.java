@@ -45,8 +45,16 @@ public class ViewMyEventsController extends DataPanelController
 		return "";
 	}
 	
-	public void deleteEvent()
+	public void deleteEvent(String event)
 	{
+		try
+		{
+			facade.deleteEvent(event);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 		
 	}
 }

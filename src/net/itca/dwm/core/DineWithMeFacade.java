@@ -19,10 +19,12 @@ public class DineWithMeFacade
 {
 	private ActiveSession session = ActiveSession.getActiveSession();
 	private ServiceFactory serviceFactory;
-	UserService userService;
-	RecipeService recipeService;
-	FriendService friendService;
-	EventService eventService;
+	private UserService userService;
+	private RecipeService recipeService;
+	private FriendService friendService;
+	private EventService eventService;
+	
+	
 	public DineWithMeFacade()
 	{
 		serviceFactory = new ServiceFactory();
@@ -38,6 +40,7 @@ public class DineWithMeFacade
 		}
 	}
 	
+	
 	public boolean login(String username, String password) throws ServiceException
 	{
 		return userService.login(username, password);
@@ -52,6 +55,8 @@ public class DineWithMeFacade
 												// stack (escape analysis)
 		return encrypter.encrypt(encrypt);
 	}
+	
+	// User stuff
 
 	public void createUser(String username, String password, String firstname, String lastname) throws DatabaseException, PasswordException, ServiceException
 	{
@@ -73,6 +78,7 @@ public class DineWithMeFacade
 		return userService.getUserID(user);	
 	}
 	
+	
 	public void addFriend(String username) throws ServiceException
 	{
 		friendService.addFriend(session.getCurrentUser().getID(), username);
@@ -93,11 +99,23 @@ public class DineWithMeFacade
 		return friendService.getFriendInvites(session.getCurrentUser().getID());
 	}
 
+	public String getFriendDetails(String friend)
+	{
+		return friendService.getFriendInfo(friend);
+	}
+	
 	public boolean declineRequest(String friend) throws Exception
 	{
 		return friendService.declineRequest(session.getCurrentUser().getID(),friend);		
 	}
 	
+	public void deleteFriend(String friend) throws Exception
+	{
+		int friendID = friendService.getFriendID(friend);
+		friendService.deleteFriend(friendID, session.getCurrentUser().getID());
+	}
+	
+	// RECIPES
 	
 	public void createRecipe(String name, String ingredients, String instructions, int people) throws ServiceException
 	{
@@ -123,6 +141,15 @@ public class DineWithMeFacade
 	
 	public void deleteRecipe(String recipe) throws ServiceException
 	{
+		// Delete the recipe, but first delete the events connected to this, for which we
+		// first have to delete the eventinvitees
+		int recipeID = recipeService.getRecipeID(recipe, session.getCurrentUser().getID());
+		ArrayList<Integer> eventIDList = eventService.getEventsBasedOnRecipe(recipeID, session.getCurrentUser().getID());
+		for(Integer i : eventIDList)
+		{
+			eventService.deleteEventFromInvites(i);
+			eventService.deleteEvent(i);
+		}
 		recipeService.deleteRecipe(session.getCurrentUser().getID(), recipe);
 	}
 	
@@ -134,6 +161,11 @@ public class DineWithMeFacade
 		eventService.createEvent(eventname, date, time, session.getCurrentUser().getID(), recipeID);
 	}
 	
+	/**
+	 * Gets events belonging to the logged in user.
+	 * @return
+	 * @throws ServiceException
+	 */
 	public ArrayList<String> getEvents() throws ServiceException
 	{
 		return eventService.getMyEvents(session.getCurrentUser().getID());
@@ -149,7 +181,7 @@ public class DineWithMeFacade
 		eventService.inviteUserToEvent(friendService.getFriendID(friendname), eventname, session.getCurrentUser().getID());
 	}
 	
-	public ArrayList<String> getEVentInvites() throws ServiceException
+	public ArrayList<String> getEventInvites() throws ServiceException
 	{
 		return eventService.getEventInvites(session.getCurrentUser().getID());
 	}
@@ -168,4 +200,27 @@ public class DineWithMeFacade
 	{
 		return eventService.getAcceptedEvents(session.getCurrentUser().getID());		
 	}
+	
+	public void deleteEvent(String event)
+	{
+		// Delete the invites associated with the event
+		int eventID = eventService.getEventID(event, session.getCurrentUser().getID());
+		eventService.deleteEventFromInvites(eventID);
+		// Delete the event
+		eventService.deleteEvent(event, session.getCurrentUser().getID());
+	}
+	
+	public void deleteAcceptedEvent(String event, String hostname)
+	{
+		int hostID = userService.getUserID(hostname);
+		int eventID = eventService.getEventID(event, hostID);
+		eventService.deleteAcceptedEvent(eventID, session.getCurrentUser().getID());
+	}
+	
+	
+	public String getMyEventDetails(String event)
+	{
+		return eventService.getMyEventDetails(session.getCurrentUser().getID(), event);
+	}
+	
 }

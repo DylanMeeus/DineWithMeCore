@@ -21,9 +21,6 @@ public class ViewFriendsController extends DataPanelController
 	 */
 	public Vector getFriends()
 	{
-		
-		
-		
 		return null;
 	}
 

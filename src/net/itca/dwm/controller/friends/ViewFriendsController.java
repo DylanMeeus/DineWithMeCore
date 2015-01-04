@@ -37,4 +37,34 @@ public class ViewFriendsController extends DataPanelController
 		return friendsVector;
 	}
 
+	
+	public String getDetails(String friendsname)
+	{
+		friendsname = friendsname.split(" ")[0];
+		String details = "";
+		try
+		{
+			details = facade.getFriendDetails(friendsname);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		return details;
+	}
+	
+	public void removeFriend(String friendsname)
+	{
+		System.out.println("Removed");
+		String username = friendsname.split(" ")[0];
+		try
+		{
+			facade.deleteFriend(username);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
 }

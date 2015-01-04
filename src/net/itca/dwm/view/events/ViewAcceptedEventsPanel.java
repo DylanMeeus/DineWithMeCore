@@ -94,8 +94,7 @@ public class ViewAcceptedEventsPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				// TODO Auto-generated method stub
-
+				controller.deleteEvent(eventList.getSelectedValue().toString());
 			}
 		});
 	}

@@ -12,6 +12,7 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
 import net.itca.dwm.controller.friends.ViewFriendsController;
+import net.itca.dwm.view.DetailsDialog;
 
 public class ViewFriendsPanel extends JPanel
 {
@@ -35,19 +36,19 @@ public class ViewFriendsPanel extends JPanel
 		this.add(menuButton, BorderLayout.WEST);
 		JPanel dataPanel = new JPanel();
 		dataPanel.setLayout(new BorderLayout());
-		dataPanel.add(friendList,BorderLayout.CENTER);
+		dataPanel.add(friendList, BorderLayout.CENTER);
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new GridLayout(1,2));
+		buttonPanel.setLayout(new GridLayout(1, 2));
 		buttonPanel.add(detailButton);
 		buttonPanel.add(removeButton);
-		dataPanel.add(buttonPanel,BorderLayout.SOUTH);
-		this.add(dataPanel,BorderLayout.CENTER);
+		dataPanel.add(buttonPanel, BorderLayout.SOUTH);
+		this.add(dataPanel, BorderLayout.CENTER);
 		addListeners();
 	}
 
 	private void addListeners()
 	{
-		
+
 		this.addAncestorListener(new AncestorListener()
 		{
 
@@ -58,21 +59,39 @@ public class ViewFriendsPanel extends JPanel
 
 			public void ancestorMoved(AncestorEvent arg0)
 			{
-			
+
 			}
 
 			public void ancestorRemoved(AncestorEvent arg0)
 			{
 			}
-			
+
 		});
-		
+
 		menuButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
 				controller.navigateMenu();
-			}	
+			}
+		});
+
+		removeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				controller.removeFriend(friendList.getSelectedValue().toString());
+			}
+		});
+
+		detailButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				String info = controller.getDetails(friendList.getSelectedValue().toString());
+				DetailsDialog detailsDialog = new DetailsDialog(info);
+				detailsDialog.show();
+			}
 		});
 	}
 }

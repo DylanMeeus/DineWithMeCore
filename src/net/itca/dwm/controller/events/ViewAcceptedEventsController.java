@@ -46,4 +46,21 @@ public class ViewAcceptedEventsController extends DataPanelController
 		}
 		return detailString;
 	}
+	
+	public void deleteEvent(String event)
+	{
+		System.out.println("Delete event");
+		String eventString = event.split("\\|")[0];
+		String hostString = event.split("\\|")[1];
+		try
+		{
+			facade.deleteAcceptedEvent(eventString, hostString);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
+	
+	}
 }
