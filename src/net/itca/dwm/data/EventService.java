@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Formatter;
 
 import net.itca.dwm.interfaces.DataService;
+import net.itca.dwm.interfaces.IEvents;
 
 /**
  * Class to deal with the event system in the database. (CRUD operations).
@@ -18,7 +19,7 @@ import net.itca.dwm.interfaces.DataService;
  * @author Dylan
  *
  */
-public class EventService extends Database implements DataService
+public class EventService extends Database implements DataService, IEvents
 {
 	
 	private PreparedStatement preparedStatement;

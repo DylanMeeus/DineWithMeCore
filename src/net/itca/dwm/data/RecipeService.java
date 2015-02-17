@@ -5,13 +5,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import net.itca.dwm.interfaces.DataService;
+import net.itca.dwm.interfaces.IRecipe;
 
 /**
  * Database extension for dealing with recipes (CRUD operations)
  * @author Dylan
  *
  */
-public class RecipeService extends Database implements DataService
+public class RecipeService extends Database implements DataService, IRecipe
 {
 
 	public RecipeService()
