@@ -9,6 +9,15 @@ Additional information
 - Code Metrics now available on www.it-ca.net/DineWithMe/Metrics
 
 
+As of 18/02/2015
+----------------
+
+The project was finished almost two months ago now, apart from some documentation and diagrams that have been added later. However, now the project is back alive and being worked on. You might wonder why the reboot happened, or why it stopped in the first place? The original version was made for a final-year course at UCLL in Mobile Applications, this was the core which contained the business logic, and later a swing backend. When the exam term started, we had to stop working on our projects, so I stopped contributing code to both this and the android repository.
+
+Now however, I am taking a course in "Internet Programming", for which we have a new 'final project', and I got the 'OK' to extend the current DineWithMe application into a full-fledged web application with some additional requirements. (Such as both offline and online data structures, which explains the recently added interface and classes.
+
+Everything else will stay the same, Javadoc and code metrics will be updated on a regular base and made available on the link found under 'Additional information'.
+
 
 As of 9/12/2014 milestone commit
 --------------------------------
