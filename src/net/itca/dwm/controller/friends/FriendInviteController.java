@@ -5,13 +5,14 @@ import java.util.Vector;
 
 import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 
 public class FriendInviteController extends DataPanelController
 {
 	private DineWithMeFacade facade;
-	public FriendInviteController(DineWithMeFacade dwmFacade)
+	public FriendInviteController()
 	{
-		facade = dwmFacade;
+		facade =  DWMSwingFacade.getInstance();
 	}
 	
 	

@@ -2,14 +2,15 @@ package net.itca.dwm.controller.recipes;
 
 import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 
 public class CreateRecipeController extends DataPanelController
 {
 
 	private DineWithMeFacade facade;
-	public CreateRecipeController(DineWithMeFacade dwmFacade)
+	public CreateRecipeController()
 	{
-		facade = dwmFacade;
+		facade =  DWMSwingFacade.getInstance();
 	}
 	
 	

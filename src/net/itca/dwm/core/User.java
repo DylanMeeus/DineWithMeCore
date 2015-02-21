@@ -9,11 +9,14 @@ public class User
 {
 	private int userID;
 	private String username;
+	private Status userStatus;
+	
 	
 	public User(String user, int ID) // CurrentUser
 	{
 		username = user;
 		userID = ID;
+		userStatus = Status.OFFLINE; // default to offline.
 	}
 	
 	/**
@@ -34,4 +37,13 @@ public class User
 		return userID;
 	}
 	
+	public void setStatus(Status status)
+	{
+		userStatus = status;
+	}
+	
+	public Status getUserStatus()
+	{
+		return userStatus;
+	}
 }

@@ -2,6 +2,7 @@ package net.itca.dwm.controller;
 
 import net.itca.dwm.core.DineWithMeFacade;
 import net.itca.dwm.core.User;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 import net.itca.dwm.view.LoginHomePanel;
 import net.itca.dwm.view.MainView;
 import net.itca.dwm.view.MenuPanel;
@@ -19,9 +20,9 @@ public class LoginController
 	 * 
 	 * @param dwmfacade
 	 */
-	public LoginController(DineWithMeFacade dwmfacade)
+	public LoginController()
 	{
-		facade = dwmfacade;
+		facade = DWMSwingFacade.getInstance();
 	}
 
 	/**
@@ -58,8 +59,7 @@ public class LoginController
 	 */
 	public void navigateToMenu()
 	{
-		MenuPanel menuPanel = new MenuPanel(new MenuController(
-				new DineWithMeFacade()));
+		MenuPanel menuPanel = new MenuPanel(new MenuController());
 		MainView mainView = MainView.getMainView();
 		mainView.setMainPanel(menuPanel);
 	}

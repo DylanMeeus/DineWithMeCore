@@ -2,13 +2,14 @@ package net.itca.dwm.controller.friends;
 
 import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 
 public class AddFriendController extends DataPanelController
 {
 	private DineWithMeFacade facade;
-	public AddFriendController(DineWithMeFacade dwmFacade)
+	public AddFriendController()
 	{
-		facade = dwmFacade;
+		facade =  DWMSwingFacade.getInstance();
 	}
 	
 

@@ -2,6 +2,7 @@ package net.itca.dwm.controller;
 
 import net.itca.dwm.controller.users.CreateUserController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 import net.itca.dwm.view.LoginPanel;
 import net.itca.dwm.view.MainView;
 import net.itca.dwm.view.users.CreateUserPanel;
@@ -13,15 +14,15 @@ import net.itca.dwm.view.users.CreateUserPanel;
  */
 public class MenuController
 {
-	private DineWithMeFacade dineWithMeFacade;
+	private DWMSwingFacade dineWithMeFacade = DWMSwingFacade.getInstance();
 	
 	/**
 	 * 
 	 * @param dwm
 	 */
-	public MenuController(DineWithMeFacade dwm)
+	public MenuController()
 	{
-		dineWithMeFacade = dwm;
+	
 	}
 	
 	/**
@@ -29,7 +30,7 @@ public class MenuController
 	 */
 	public void navigateLogin()
 	{
-		LoginPanel login = new LoginPanel(new LoginController(dineWithMeFacade));
+		LoginPanel login = new LoginPanel(new LoginController());
 		MainView mv = MainView.getMainView();
 		mv.setMainPanel(login);
 	}
@@ -39,7 +40,7 @@ public class MenuController
 	 */
 	public void navigateCreateUser()
 	{
-		CreateUserPanel createuser = new CreateUserPanel(new CreateUserController(dineWithMeFacade));
+		CreateUserPanel createuser = new CreateUserPanel(new CreateUserController());
 		MainView mv = MainView.getMainView();
 		mv.setMainPanel(createuser);
 	

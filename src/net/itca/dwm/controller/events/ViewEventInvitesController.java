@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 
 /**
  * Controller to control the event invites view.
@@ -15,9 +16,9 @@ public class ViewEventInvitesController extends DataPanelController
 {
 
 	private DineWithMeFacade facade;
-	public ViewEventInvitesController(DineWithMeFacade dwmFacade)
+	public ViewEventInvitesController()
 	{
-		facade = dwmFacade;
+		facade =  DWMSwingFacade.getInstance();
 	}
 	
 	public Vector<String> getEventInvites()

@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 
 /**
  * 
@@ -19,9 +20,9 @@ public class CreateEventController extends DataPanelController
 	 * 
 	 * @param dwmFacade
 	 */
-	public CreateEventController(DineWithMeFacade dwmFacade)
+	public CreateEventController()
 	{
-		facade = dwmFacade;
+		facade =  DWMSwingFacade.getInstance();
 	}
 
 	/**

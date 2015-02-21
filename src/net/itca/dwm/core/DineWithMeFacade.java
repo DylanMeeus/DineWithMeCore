@@ -1,6 +1,8 @@
 package net.itca.dwm.core;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import net.itca.dwm.data.EventService;
 import net.itca.dwm.data.FriendService;
@@ -38,6 +40,11 @@ public class DineWithMeFacade
 		{
 			ex.printStackTrace();
 		}
+	}
+	
+	public void setDatabaseInformation(String username, String password)
+	{
+		
 	}
 	
 	

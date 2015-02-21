@@ -11,6 +11,7 @@ import net.itca.dwm.controller.friends.ViewFriendsController;
 import net.itca.dwm.controller.recipes.CreateRecipeController;
 import net.itca.dwm.controller.recipes.ViewRecipesController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 import net.itca.dwm.view.MainView;
 import net.itca.dwm.view.MenuPanel;
 import net.itca.dwm.view.events.CreateEventPanel;
@@ -32,9 +33,10 @@ import net.itca.dwm.view.recipes.ViewRecipesPanel;
 public class LoginHomeController
 {
 	private MainView mainView;
-	private DineWithMeFacade facade;
+	private DWMSwingFacade facade;
 	public LoginHomeController() // No facade needed for this one
 	{
+		facade = DWMSwingFacade.getInstance();
 		mainView = MainView.getMainView();
 	}
 	
@@ -44,8 +46,7 @@ public class LoginHomeController
 	public void logout()
 	{
 		// Set user to null & return to main?
-		MenuPanel menuPanel = new MenuPanel(new MenuController(new DineWithMeFacade()));
-		DineWithMeFacade facade = new DineWithMeFacade();
+		MenuPanel menuPanel = new MenuPanel(new MenuController());
 		facade.setCurrentUser(null);
 		mainView.setMainPanel(menuPanel);
 	}
@@ -55,7 +56,7 @@ public class LoginHomeController
 	 */
 	public void navigateAddFriend()
 	{
-		AddFriendPanel addFriendPanel = new AddFriendPanel(new AddFriendController(new DineWithMeFacade()));
+		AddFriendPanel addFriendPanel = new AddFriendPanel(new AddFriendController());
 		mainView.setMainPanel(addFriendPanel);
 	}
 	
@@ -64,7 +65,7 @@ public class LoginHomeController
 	 */
 	public void navigateViewFriends()
 	{
-		ViewFriendsPanel vfPanel = new ViewFriendsPanel(new ViewFriendsController(new DineWithMeFacade()));
+		ViewFriendsPanel vfPanel = new ViewFriendsPanel(new ViewFriendsController());
 		mainView.setMainPanel(vfPanel);
 	}
 
@@ -73,7 +74,7 @@ public class LoginHomeController
 	 */
 	public void navigateViewFriendInvites()
 	{
-		FriendInvitesPanel fiPanel = new FriendInvitesPanel(new FriendInviteController(new DineWithMeFacade()));
+		FriendInvitesPanel fiPanel = new FriendInvitesPanel(new FriendInviteController());
 		mainView.setMainPanel(fiPanel);
 	}
 	
@@ -82,7 +83,7 @@ public class LoginHomeController
 	 */
 	public void navigateCreateRecipe()
 	{
-		CreateRecipePanel crPanel = new CreateRecipePanel(new CreateRecipeController(new DineWithMeFacade()));
+		CreateRecipePanel crPanel = new CreateRecipePanel(new CreateRecipeController());
 		mainView.setMainPanel(crPanel);
 	}
 	
@@ -91,7 +92,7 @@ public class LoginHomeController
 	 */
 	public void navigateViewRecipes()
 	{
-		ViewRecipesPanel vrPanel = new ViewRecipesPanel(new ViewRecipesController(new DineWithMeFacade()));	
+		ViewRecipesPanel vrPanel = new ViewRecipesPanel(new ViewRecipesController());	
 		mainView.setMainPanel(vrPanel);
 	}
 	
@@ -100,7 +101,7 @@ public class LoginHomeController
 	 */
 	public void navigateCreateEvent()
 	{
-		CreateEventPanel cePanel = new CreateEventPanel(new CreateEventController(new DineWithMeFacade()));
+		CreateEventPanel cePanel = new CreateEventPanel(new CreateEventController());
 		mainView.setMainPanel(cePanel);
 	}
 	
@@ -109,7 +110,7 @@ public class LoginHomeController
 	 */
 	public void navigateViewMyEvents()
 	{
-		ViewMyEventsPanel vmePanel = new ViewMyEventsPanel(new ViewMyEventsController(new DineWithMeFacade()));
+		ViewMyEventsPanel vmePanel = new ViewMyEventsPanel(new ViewMyEventsController());
 		mainView.setMainPanel(vmePanel);
 	}
 	
@@ -118,7 +119,7 @@ public class LoginHomeController
 	 */
 	public void navigateViewEventInvites()
 	{
-		ViewEventInvitesPanel veiPanel = new ViewEventInvitesPanel(new ViewEventInvitesController(new DineWithMeFacade()));
+		ViewEventInvitesPanel veiPanel = new ViewEventInvitesPanel(new ViewEventInvitesController());
 		mainView.setMainPanel(veiPanel);
 	}
 	
@@ -127,13 +128,13 @@ public class LoginHomeController
 	 */
 	public void navigateInviteFriendToEvent()
 	{
-		InviteFriendsPanel ivFpanel = new InviteFriendsPanel(new InviteFriendsController(new DineWithMeFacade()));
+		InviteFriendsPanel ivFpanel = new InviteFriendsPanel(new InviteFriendsController());
 		mainView.setMainPanel(ivFpanel);
 	}
 	
 	public void navigateViewAcceptedEvents()
 	{
-		ViewAcceptedEventsPanel vaePanel = new ViewAcceptedEventsPanel(new ViewAcceptedEventsController(new DineWithMeFacade()));
+		ViewAcceptedEventsPanel vaePanel = new ViewAcceptedEventsPanel(new ViewAcceptedEventsController());
 		mainView.setMainPanel(vaePanel);
 	}
 }

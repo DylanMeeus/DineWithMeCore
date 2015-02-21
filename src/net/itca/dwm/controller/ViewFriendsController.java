@@ -3,6 +3,7 @@ package net.itca.dwm.controller;
 import java.util.Vector;
 
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 import net.itca.dwm.view.LoginHomePanel;
 import net.itca.dwm.view.MainView;
 import net.itca.dwm.view.MenuPanel;
@@ -11,9 +12,9 @@ public class ViewFriendsController
 {
 	
 	DineWithMeFacade facade;
-	public ViewFriendsController(DineWithMeFacade dwmFacade)
+	public ViewFriendsController()
 	{
-		facade = dwmFacade;
+		facade =  DWMSwingFacade.getInstance();
 	}
 	
 	

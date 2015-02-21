@@ -5,14 +5,15 @@ import java.util.Vector;
 
 import net.itca.dwm.controller.DataPanelController;
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.swingcore.DWMSwingFacade;
 
 public class ViewAcceptedEventsController extends DataPanelController 
 {
 
 	private DineWithMeFacade facade;
-	public ViewAcceptedEventsController(DineWithMeFacade dwmFacade)
+	public ViewAcceptedEventsController()
 	{
-		facade = dwmFacade;
+		facade =  DWMSwingFacade.getInstance();
 	}
 	
 	public Vector<String> getAcceptedEvents()
